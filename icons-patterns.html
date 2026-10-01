@@ -27,12 +27,12 @@ a{color:var(--lime)}
 </style><link rel="stylesheet" href="assets/design-system.css">
 <link rel="stylesheet" href="assets/site.css">
 </head><body><div class="wrap" id="top">
-<p class="eyebrow">MRJAMESBRAND LTD · Icon pack + Vector patterns · 24 / 8</p>
+<p class="eyebrow">MRJAMESBRAND LTD · Icon pack + Vector patterns · 50 / 8 · v2 packed</p>
 <h1>ICONS &amp;<br>PATTERNS.</h1>
 <p style="color:#bbb;max-width:70ch;margin-top:10px">Square caps, 24px grid, stroke 2.4 · same DNA as the block M. Click any icon/pattern to copy SVG. Use toolbar to test size, stroke, background. All files in <b>assets/icons</b>, <b>assets/patterns</b> + mirrored in <b>exports/</b>.</p>
-<p class="spec" style="margin-top:8px"><a href="presentation.html">← PRESENTATION</a> · <a href="index.html">BRAND BOARD</a></p>
+<p class="spec" style="margin-top:8px"><a href="presentation.html">← PRESENTATION</a> · <a href="index.html">BRAND BOARD</a> · <a href="illustrations.html">FLAT ILLUSTRATIONS →</a> · <a href="uikit.html">UI KIT →</a></p>
 
-<h2>Icon pack · <span id="iconCount">23</span> glyphs</h2>
+<h2>Icon pack · <span id="iconCount">50</span> glyphs</h2>
 <div class="toolbar">
 <input type="text" id="q" placeholder="Filter · e.g. arrow, book, growth…">
 <label class="spec">SIZE <span id="szV">40</span></label><input type="range" id="sz" min="24" max="72" value="40">
@@ -47,16 +47,17 @@ a{color:var(--lime)}
 <p class="spec" style="margin:26px 0 60px">USAGE · icons: 24px UI / 20px nav, never below 16px, lime only for active state. Patterns: blueprint + lime-tape for hero/packaging, dot-matrix + m-tessellation for print backs, slash-motion for social motion only. Tile seamlessly (patternUnits userSpaceOnUse).</p>
 </div><div id="toast">COPIED</div>
 <script>
-let ICONS=["arrow-up-right","arrow-right","arrow-left","menu","close","plus","check","search","briefcase-work","layers-services","grid-solutions","compass-method","chart-insights","book-resources","cap-academy","mail-contact","cal-book","user-portal","trend-growth","shield-trust","star-proof","quote-mark","play-circle"];
+let ICONS=["arrow-up-right","arrow-right","arrow-left","menu","close","plus","check","search","briefcase-work","layers-services","grid-solutions","compass-method","chart-insights","book-resources","cap-academy","mail-contact","cal-book","user-portal","trend-growth","shield-trust","star-proof","quote-mark","play-circle","phone-call","send","download","upload","external-link","copy","share","printer","receipt-invoice","card-payment","calendar-check","clock","pin-location","globe","award","users-team","target","bulb-idea","rocket-launch","sliders-settings","file-doc","image","mic-voice","home","bell","lock","palette"];
 let PATS=["pattern-m-tessellation","pattern-slash-motion","pattern-peak-grid","pattern-blueprint","pattern-dot-matrix","pattern-bar-rhythm","pattern-valley-fade","pattern-lime-tape"];
 let grid=document.getElementById('iconGrid'),cache={};
-async function loadIcon(n){if(cache[n])return cache[n];let t=await(await fetch('assets/icons/'+n+'.svg')).text();cache[n]=t;return t}
-async function render(filter=""){grid.innerHTML="";let c=0;for(let n of ICONS){if(filter&&!n.includes(filter.toLowerCase()))continue;c++;
-let d=document.createElement('div');d.className='icon';d.innerHTML=(await loadIcon(n))+'<span>'+n+'.svg</span>';
+let NEW=new Set(["phone-call","send","download","upload","external-link","copy","share","printer","receipt-invoice","card-payment","calendar-check","clock","pin-location","globe","award","users-team","target","bulb-idea","rocket-launch","sliders-settings","file-doc","image","mic-voice","home","bell","lock","palette"]);
+async function loadIcon(n){if(cache[n])return cache[n];let t=await(await fetch('assets/icons/'+n+'.svg?v=50')).text();cache[n]=t;return t}
+async function render(filter=""){grid.innerHTML="";let c=0,miss=[];for(let n of ICONS){if(filter&&!n.includes(filter.toLowerCase()))continue;let svg="";try{svg=await loadIcon(n)}catch(e){miss.push(n);continue}c++;
+let d=document.createElement('div');d.className='icon';d.innerHTML=svg+'<span>'+n+'.svg'+(NEW.has(n)?' · NEW':'')+'</span>';
 d.querySelector('svg').setAttribute('width',sz.value);d.querySelector('svg').setAttribute('height',sz.value);
-d.querySelectorAll('svg [stroke]').forEach(e=>{if(e.getAttribute('stroke')=='currentColor')return});d.querySelector('svg').setAttribute('stroke-width',st.value);
-d.onclick=async()=>{try{await navigator.clipboard.writeText(await loadIcon(n));toast(n.toUpperCase()+' SVG COPIED')}catch(e){toast(n.toUpperCase())}};grid.appendChild(d)}
-iconCount.textContent=c}
+d.querySelector('svg').setAttribute('stroke-width',st.value);
+let code=svg;d.onclick=async()=>{try{await navigator.clipboard.writeText(code);toast(n.toUpperCase()+' SVG COPIED')}catch(e){toast(n.toUpperCase())}};grid.appendChild(d)}
+iconCount.textContent=c+(miss.length?' ('+miss.length+' missing · hard refresh)':'');if(miss.length)toast(miss.length+' FILES MISSING · CTRL+F5')}
 function toast(m){let t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1300)}
 q.oninput=()=>render(q.value);sz.oninput=()=>{szV.textContent=sz.value;render(q.value)};st.oninput=()=>{stV.textContent=st.value;render(q.value)};
 bgT.onclick=()=>{document.body.classList.toggle('iconinv');bgT.textContent=document.body.classList.contains('iconinv')?'BG: LIGHT':'BG: DARK';bgT.classList.toggle('on');if(document.body.classList.contains('iconinv')){document.body.style.background='#F6F4EF';document.body.style.color='#111'}else{document.body.style.background='#000';document.body.style.color='#fff'}render(q.value)};

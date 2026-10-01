@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>UI Kit · Type Tokens · Colour · MRJAMESBRAND Formation</title><link rel="icon" href="exports/favicon.svg">
+<link rel="stylesheet" href="assets/design-system.css">
+<link rel="stylesheet" href="assets/site.css">
+<style>
+:root{--ink:#111;--bg:#fff;--card:#fff;--line:#111;--mut:#444;--soft:#F6F4EF}
+[data-theme=dark]{--ink:#fff;--bg:#000;--card:#111;--line:rgba(255,255,255,.22);--mut:#bbb;--soft:#0c0c0c}
+*{box-sizing:border-box}body{font-family:Inter,system-ui;background:var(--bg);color:var(--ink);margin:0;transition:.3s}
+.wrap{max-width:1280px;margin:0 auto;padding:0 clamp(20px,4vw,48px)}
+header{position:sticky;top:38px;z-index:40;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(8px);border-bottom:3px solid var(--ink)}
+.hd{display:flex;align-items:center;gap:12px;height:60px}
+.hd b{font-family:'Space Grotesk';letter-spacing:.18em;font-size:.8rem}
+.hd nav{display:flex;gap:14px;margin-left:14px;font-family:'IBM Plex Mono';font-size:.64rem;letter-spacing:.1em}
+.hd a{color:inherit;opacity:.6;text-decoration:none}.hd a:hover{opacity:1}
+.tools{margin-left:auto;display:flex;gap:8px}
+.tools button{border:1px solid var(--ink);background:none;color:inherit;font-family:'IBM Plex Mono';font-size:11px;padding:8px 14px;cursor:pointer}
+.hero{background:#000;color:#fff;padding:64px 0;border-bottom:3px solid #000;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.07) 1px,transparent 1px);background-size:40px 40px;mask-image:radial-gradient(760px 440px at 25% 0%,#000 30%,transparent 75%)}
+h1{font-family:'Space Grotesk';font-size:clamp(2.6rem,8vw,6.4rem);line-height:.9;letter-spacing:-.05em;position:relative;z-index:2}
+h1 span{color:#B7FF4A}h2{font-family:'Space Grotesk';font-size:clamp(1.6rem,3.2vw,2.5rem);letter-spacing:-.03em}
+.eyebrow{font-family:'IBM Plex Mono';font-size:.68rem;letter-spacing:.18em;text-transform:uppercase}
+section{padding:60px 0;border-bottom:3px solid var(--ink)}
+.sec-head{display:grid;grid-template-columns:64px 1fr auto;gap:14px;align-items:baseline;border-bottom:1px solid var(--ink);padding-bottom:10px;margin-bottom:22px}
+.num{font-family:'Space Grotesk';font-weight:700;background:#B7FF4A;color:#000;padding:3px 10px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:0;border:3px solid var(--ink)}
+.grid2>div{padding:22px}.grid2>div+div{border-left:3px solid var(--ink)}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:3px solid var(--ink)}
+.grid3>div{padding:20px;border-right:1px solid var(--ink)}.grid3>div:last-child{border-right:none}
+.btn{display:inline-block;font-family:'Space Grotesk';font-weight:700;border:1px solid #000;padding:13px 26px;cursor:pointer;text-decoration:none;font-size:.95rem}
+.btn.lime{background:#B7FF4A;color:#000;border-color:#B7FF4A}.btn.dark{background:#000;color:#fff}.btn.ghost{background:transparent}.btn.sm{padding:9px 18px;font-size:.8rem}.btn.lg{padding:17px 34px;font-size:1.05rem;letter-spacing:.04em}.btn.off{opacity:.4;cursor:not-allowed}
+.pill{display:inline-block;border:1px solid var(--ink);padding:6px 16px;font-family:'IBM Plex Mono';font-size:.68rem;letter-spacing:.12em;margin:4px 6px 4px 0}.pill.fill{background:#000;color:#B7FF4A;border-color:#000}.pill.lime{background:#B7FF4A;color:#000;border-color:#B7FF4A}
+.avatar{width:44px;height:44px;display:inline-flex;align-items:center;justify-content:center;font-family:'Space Grotesk';font-weight:700;margin-right:-10px;border:2px solid var(--bg)}
+.field{margin:12px 0}.field label{display:block;font-family:'IBM Plex Mono';font-size:.66rem;letter-spacing:.12em;margin-bottom:6px}
+.field input[type=text],.field textarea,.field select{width:100%;border:1px solid var(--ink);background:var(--card);color:inherit;padding:12px;font:inherit}
+.field input:focus,.field textarea:focus{outline:2px solid #B7FF4A;outline-offset:2px}
+.field .err{border-color:#C62828!important}.field .msg{font-size:.78rem;margin-top:4px}.field .msg.bad{color:#C62828}
+.switch{position:relative;width:52px;height:28px;background:#888;display:inline-block;vertical-align:middle;cursor:pointer}.switch::after{content:"";position:absolute;top:3px;left:3px;width:22px;height:22px;background:#fff;transition:.2s}.switch.on{background:#000}.switch.on::after{left:27px;background:#B7FF4A}
+.check{display:flex;gap:10px;align-items:center;margin:8px 0;font-size:.9rem}.box{width:20px;height:20px;border:2px solid var(--ink);display:inline-flex;align-items:center;justify-content:center;font-size:.8rem;cursor:pointer;flex:none}.box.on{background:#000;color:#B7FF4A}
+.alert{border:1px solid var(--ink);border-left:10px solid var(--ink);padding:12px 16px;margin:8px 0;font-size:.9rem}
+.alert.ok{border-color:#2E7D32;border-left-color:#2E7D32}.alert.warn{border-color:#B7791F;border-left-color:#B7791F}.alert.bad{border-color:#C62828;border-left-color:#C62828}.alert.info{border-color:#2563EB;border-left-color:#2563EB}
+.bar{height:12px;background:var(--soft);border:1px solid var(--ink);margin-top:8px}.bar i{display:block;height:100%;background:#000}.bar.limebar i{background:#B7FF4A}
+table{width:100%;border-collapse:collapse;font-size:.86rem}th,td{border:1px solid var(--ink);padding:9px 12px;text-align:left;vertical-align:top}th{font-family:'IBM Plex Mono';font-size:.62rem;letter-spacing:.1em;background:#000;color:#B7FF4A}
+td code,code.tok{background:#000;color:#B7FF4A;padding:2px 8px;font-family:'IBM Plex Mono';font-size:.72rem;cursor:pointer;white-space:nowrap}
+.swatches{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border:3px solid var(--ink)}
+.sw{border-right:1px solid var(--ink);cursor:pointer;background:var(--card)}.sw:last-child{border-right:none}.sw i{display:block;height:66px}.sw div{padding:9px;font-family:'IBM Plex Mono';font-size:10.5px}
+#typePrev{font-family:'Space Grotesk';font-weight:700;font-size:44px;line-height:1;border:3px solid var(--ink);padding:18px;margin-top:10px;background:var(--card)}
+#typeIn{width:100%;border:3px solid var(--ink);background:var(--card);color:inherit;padding:12px;margin-top:10px;font-size:1rem}
+.spbar{display:flex;align-items:flex-end;gap:8px;margin-top:10px}.spbar div{flex:1;background:#000;color:#B7FF4A;font-family:'IBM Plex Mono';font-size:10px;text-align:center}
+#toast{position:fixed;bottom:26px;left:50%;transform:translateX(-50%);background:#000;color:#B7FF4A;font-family:'IBM Plex Mono';font-size:12px;padding:10px 22px;opacity:0;transition:.3s;z-index:99;border:1px solid #B7FF4A}#toast.show{opacity:1}
+.reveal{opacity:0;transform:translateY(14px);transition:.55s}.reveal.in{opacity:1;transform:none}
+@media(max-width:900px){.grid2,.grid3{grid-template-columns:1fr}.grid2>div+div{border-left:none;border-top:3px solid var(--ink)}.grid3>div{border-right:none;border-bottom:1px solid var(--ink)}.swatches{grid-template-columns:repeat(2,1fr)}.hd nav{display:none}}
+</style></head><body>
+<header><div class="wrap hd"><b>UI KIT · TOKENS</b><nav><a href="#buttons">BUTTONS</a><a href="#inputs">INPUTS</a><a href="#feedback">FEEDBACK</a><a href="#type">TYPE</a><a href="#color">COLOUR</a><a href="#space">SPACE</a></nav><div class="tools"><button id="thT">◐ THEME</button></div></div></header>
+<div class="hero"><div class="wrap">
+<p class="eyebrow" style="color:#B7FF4A">Detailed UI kit · type tokens · colour system · square only</p>
+<h1>UI KIT<span>.</span></h1>
+<p style="color:#bbb;max-width:68ch;margin-top:12px">Every control, token and swatch specified. Buttons, inputs, badges, alerts, bars. Full type scale with tracking and leading. Full palette with usage and contrast. Click any <code style="background:#B7FF4A;color:#000;padding:2px 8px;font-family:monospace">token</code> to copy.</p>
+</div></div>
+<div class="wrap">
+<section id="buttons"><div class="sec-head"><span class="num">01</span><h2>Buttons</h2><span class="eyebrow">LIME ACTS · ONE PRIMARY PER VIEW</span></div>
+<div class="grid2 reveal"><div><p class="eyebrow">Variants</p><p style="margin-top:12px"><a class="btn lime">START A PROJECT ↗</a></p><p style="margin-top:10px"><a class="btn dark">BOOK A CALL</a> <a class="btn ghost">CONTACT</a></p><p class="eyebrow" style="margin-top:14px">Sizes</p><p style="margin-top:8px"><a class="btn lime sm">SMALL</a> <a class="btn lime">DEFAULT</a> <a class="btn lime lg">LARGE · TRACKED</a></p></div>
+<div><p class="eyebrow">States + rules</p><p style="margin-top:12px"><a class="btn lime">HOVER · #C8FF7A</a> <a class="btn off">DISABLED · 40%</a></p><ul style="margin-top:12px;line-height:1.9;font-size:.9rem"><li>Radius 0 · pills only for CTAs</li><li>Never two lime buttons side by side</li><li>Ghost on busy bg · dark on paper</li><li>Min height 44px · active scale .98</li></ul></div></div></section>
+<section id="inputs"><div class="sec-head"><span class="num">02</span><h2>Inputs</h2><span class="eyebrow">44PX MIN · FOCUS GOES LIME</span></div>
+<div class="grid2 reveal"><div><div class="field"><label>TEXT · BOOKING NAME</label><input type="text" value="Adaeze Okafor"></div><div class="field"><label>TEXTAREA · BRIEF</label><textarea rows="3">Build a brand people choose.</textarea></div><div class="field"><label>SELECT · SERVICE</label><select><option>Brand Strategy</option><option>Digital Experience</option><option>Growth System</option></select></div></div>
+<div><div class="field"><label>ERROR · EMAIL</label><input type="text" class="err" value="info@"><p class="msg bad">Enter a valid studio email.</p></div><div class="check"><span class="box on" data-c>✓</span> Growth retainer <span class="box" data-c></span> One off sprint</div><div style="margin-top:10px">Notifications <span class="switch on" id="sw"></span></div><p class="eyebrow" style="margin-top:12px">FOCUS · 2PX LIME OFFSET 2 · ERROR · #C62828</p></div></div></section>
+<section id="feedback"><div class="sec-head"><span class="num">03</span><h2>Badges · avatars · feedback</h2><span class="eyebrow">PROOF BEFORE DECORATION</span></div>
+<div class="grid3 reveal"><div><p class="eyebrow">Pills</p><p style="margin-top:10px"><span class="pill fill">99% · STRATEGY</span><span class="pill lime">NEW · ACADEMY</span><span class="pill">PORTAL</span></p><p class="eyebrow" style="margin-top:14px">Avatars + stars</p><p style="margin-top:8px"><span class="avatar" style="background:#000;color:#fff">A</span><span class="avatar" style="background:#0E2F26;color:#fff">B</span><span class="avatar" style="background:#B7FF4A;color:#000">C</span> <span style="color:#9db37a">★★★★★</span> 4.8/5</p></div>
+<div><p class="eyebrow">Alerts</p><div class="alert ok">Paid · receipt #MJB 2026 sent.</div><div class="alert warn">Portal invite expires in 2 days.</div><div class="alert bad">Paystack webhook failed · retry.</div><div class="alert info">Sanity revalidated 3 pages.</div></div>
+<div><p class="eyebrow">Bars · click toast demo</p><p style="margin-top:10px">Health 78%<span class="bar"><i style="width:78%"></i></span></p><p style="margin-top:10px">Project <span class="bar limebar"><i style="width:45%"></i></span></p><p style="margin-top:12px"><button class="btn dark sm" id="toastBtn">FIRE TOAST</button></p></div></div></section>
+<section id="type"><div class="sec-head"><span class="num">04</span><h2>Type tokens</h2><span class="eyebrow">GROTESK SHOUTS · INTER EXPLAINS</span></div>
+<input id="typeIn" value="Understand → Trust → Be Chosen" maxlength="60"><div id="typePrev">Understand → Trust → Be Chosen</div>
+<label class="eyebrow">SIZE <span id="tsV">44</span>PX</label><input type="range" id="ts" min="24" max="96" value="44" style="width:100%;accent-color:#000">
+<table style="margin-top:14px" class="reveal"><tr><th>Token</th><th>Value</th><th>Tracking / leading</th><th>Use</th></tr>
+<tr><td><code class="tok">--text-display-1</code></td><td>clamp(3rem,12.5vw,11rem) · 700</td><td>-0.06em / 0.85</td><td>Hero H1 only</td></tr>
+<tr><td><code class="tok">--text-display-2</code></td><td>clamp(2.2rem,4vw,5.2rem) · 700</td><td>-0.03em / 1.0</td><td>Section H2</td></tr>
+<tr><td><code class="tok">--text-display-3</code></td><td>clamp(1.7rem,2.8vw,3.6rem) · 700</td><td>-0.02em / 1.05</td><td>Card titles</td></tr>
+<tr><td><code class="tok">--text-title</code></td><td>clamp(1.35rem,1.2vw,2rem)</td><td>-0.015em / 1.2</td><td>Sub heads</td></tr>
+<tr><td><code class="tok">--text-lede</code></td><td>clamp(1.05rem,0.35vw,1.25rem) · Inter 400</td><td>-0.01em / 1.6 · 65ch</td><td>Intros</td></tr>
+<tr><td><code class="tok">--text-body</code></td><td>1rem · Inter 400</td><td>0 / 1.65 · 70ch</td><td>All body</td></tr>
+<tr><td><code class="tok">--text-eyebrow</code></td><td>0.72rem · Mono 600 · caps</td><td>0.18em / 1.4</td><td>Labels, specs</td></tr>
+<tr><td><code class="tok">--text-caption</code></td><td>0.75rem · Inter 400</td><td>0 / 1.5 · stone</td><td>Meta, footnotes</td></tr></table></section>
+<section id="color"><div class="sec-head"><span class="num">05</span><h2>Colour system</h2><span class="eyebrow">MONO 90 · LIME 10 · CLICK TO COPY</span></div>
+<div class="swatches reveal" id="sw" style="display:grid;grid-template-columns:repeat(5,1fr);gap:0;border:3px solid var(--ink)">
+<div class="sw" data-h="#000000 · --color-black · 60% hero/ink"><i style="background:#000;height:66px;display:block"></i><div style="padding:9px;font-family:monospace;font-size:10.5px">#000000 · 60%</div></div>
+<div class="sw" data-h="#FFFFFF · --color-white · 25% space"><i style="background:#fff;height:66px;display:block;border-bottom:1px solid #ddd"></i><div style="padding:9px;font-family:monospace;font-size:10.5px">#FFFFFF · 25%</div></div>
+<div class="sw" data-h="#B7FF4A · --color-lime · 10% CTA only"><i style="background:#B7FF4A;height:66px;display:block"></i><div style="padding:9px;font-family:monospace;font-size:10.5px">#B7FF4A · 10%</div></div>
+<div class="sw" data-h="#F6F4EF · --color-paper · section wash"><i style="background:#F6F4EF;height:66px;display:block"></i><div style="padding:9px;font-family:monospace;font-size:10.5px">#F6F4EF · paper</div></div>
+<div class="sw" data-h="#E5E7EB · --color-mist · hairlines"><i style="background:#E5E7EB;height:66px;display:block"></i><div style="padding:9px;font-family:monospace;font-size:10.5px">#E5E7EB · mist</div></div>
+<div class="sw" data-h="#1A1A1A · --color-graphite · cards"><i style="background:#1A1A1A;height:66px;display:block"></i><div style="padding:9px;font-family:monospace;font-size:10.5px">#1A1A1A · graphite</div></div>
+<div class="sw" data-h="#6B7280 · --color-stone · muted text"><i style="background:#6B7280;height:66px;display:block"></i><div style="padding:9px;font-family:monospace;font-size:10.5px">#6B7280 · stone</div></div>
+<div class="sw" data-h="#E6F5C7 · --color-lime-soft · tint blocks"><i style="background:#E6F5C7;height:66px;display:block"></i><div style="padding:9px;font-family:monospace;font-size:10.5px">#E6F5C7 · soft</div></div>
+<div class="sw" data-h="#0E2F26 · --color-forest · portal/admin"><i style="background:#0E2F26;height:66px;display:block"></i><div style="padding:9px;font-family:monospace;font-size:10.5px">#0E2F26 · forest</div></div>
+<div class="sw" data-h="#3B2313 · --color-chocolate · portal accent"><i style="background:#3B2313;height:66px;display:block"></i><div style="padding:9px;font-family:monospace;font-size:10.5px">#3B2313 · choc</div></div>
+</div>
+<table style="margin-top:14px"><tr><th>Pair</th><th>Ratio</th><th>Rule</th></tr>
+<tr><td>Black on white · white on black</td><td>21:1 AAA</td><td>Default text everywhere</td></tr>
+<tr><td>Black on lime</td><td>~15:1 AA</td><td>CTA, highlight, active tab only</td></tr>
+<tr><td>White on forest</td><td>AA pass</td><td>Portal + admin surfaces</td></tr>
+<tr><td>Lime on white</td><td>FAIL</td><td>Never · use black on lime instead</td></tr></table></section>
+<section id="space"><div class="sec-head"><span class="num">06</span><h2>Space · borders · radius</h2><span class="eyebrow">8PT · 3PX PROOF · 1PX CALM</span></div>
+<div class="spbar reveal" style="display:flex;align-items:flex-end;gap:8px"><div style="flex:1;background:#000;color:#B7FF4A;font-family:monospace;font-size:10px;text-align:center;height:32px">8</div><div style="flex:1;background:#000;color:#B7FF4A;font-family:monospace;font-size:10px;text-align:center;height:44px">12</div><div style="flex:1;background:#000;color:#B7FF4A;font-family:monospace;font-size:10px;text-align:center;height:56px">16</div><div style="flex:1;background:#000;color:#B7FF4A;font-family:monospace;font-size:10px;text-align:center;height:72px">24</div><div style="flex:1;background:#000;color:#B7FF4A;font-family:monospace;font-size:10px;text-align:center;height:92px">32</div><div style="flex:1;background:#000;color:#B7FF4A;font-family:monospace;font-size:10px;text-align:center;height:112px">48</div><div style="flex:1;background:#000;color:#B7FF4A;font-family:monospace;font-size:10px;text-align:center;height:132px">64</div></div>
+<p style="margin-top:12px;font-size:.9rem">Sections 56→84 · stack 16/20 · radius 0 (pills + avatars excepted) · bento <code class="tok">gap:0 + shared 1px line</code> · <a href="design-system.html" style="color:inherit">full spec →</a> · <a href="stakeholder.html" style="color:inherit">hub →</a></p></section>
+</div>
+<div id="toast">COPIED</div>
+<script src="assets/site.js"></script>
+<script>
+function toast(m){let t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1300)}
+thT.onclick=()=>{let r=document.documentElement;r.dataset.theme=r.dataset.theme=='light'?'dark':'light'};
+document.querySelectorAll('code.tok').forEach(c=>c.onclick=async()=>{try{await navigator.clipboard.writeText(c.textContent);toast(c.textContent+' COPIED')}catch(e){toast(c.textContent)}});
+document.querySelectorAll('#sw .sw').forEach(s=>s.onclick=async()=>{try{await navigator.clipboard.writeText(s.dataset.h);toast('COPIED · '+s.dataset.h.split('·')[0])}catch(e){toast(s.dataset.h)}});
+typeIn.oninput=()=>typePrev.textContent=typeIn.value||'Type…';ts.oninput=()=>{tsV.textContent=ts.value;typePrev.style.fontSize=ts.value+'px'};
+document.querySelectorAll('.box[data-c]').forEach(b=>b.onclick=()=>{b.classList.toggle('on');b.textContent=b.classList.contains('on')?'✓':''});
+sw.onclick=()=>sw.classList.toggle('on');
+toastBtn.onclick=()=>toast('RECEIPT #MJB 2026 SENT');
+let io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.1});document.querySelectorAll('.reveal').forEach(x=>io.observe(x));
+</script></body></html>

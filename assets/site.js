@@ -1,5 +1,5 @@
 /* Global site bar injection: makes all pages one website. */
-(function(){var P=[["stakeholder.html","HUB"],["formation.html","FORMATION"],["presentation.html","DECK"],["index.html","BOARD"],["rationale.html","M·J·B·R"],["icons-patterns.html","ICONS"],["design-system.html","SYSTEM"]];
+(function(){var P=[["stakeholder.html","HUB"],["formation.html","FORMATION"],["presentation.html","DECK"],["index.html","BOARD"],["rationale.html","M·J·B·R"],["icons-patterns.html","ICONS"],["illustrations.html","ART"],["uikit.html","UI KIT"],["design-system.html","SYSTEM"]];
 var cur=(location.pathname.split('/').pop()||'index.html').toLowerCase();
 var b=document.createElement('div');b.className='mjb-sitebar';
 var h='<a class="brand" href="stakeholder.html">M · FORMATION SYSTEM</a><nav>';

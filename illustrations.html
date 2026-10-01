@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Flat Illustrations · MRJAMESBRAND Formation</title><link rel="icon" href="exports/favicon.svg">
+<link rel="stylesheet" href="assets/design-system.css">
+<link rel="stylesheet" href="assets/site.css">
+<style>
+body{font-family:Inter,system-ui;background:#000;color:#fff;margin:0}
+.wrap{max-width:1280px;margin:0 auto;padding:44px clamp(20px,4vw,48px)}
+h1{font-family:'Space Grotesk';font-size:clamp(2.4rem,6vw,4.8rem);letter-spacing:-.04em;line-height:.95}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.2);margin-top:20px}
+.cell{outline:1px solid rgba(255,255,255,.2);outline-offset:-1px;background:#111;padding:18px;cursor:pointer;transition:.25s}
+.cell:hover{border-color:#B7FF4A}.cell:hover{outline-color:#B7FF4A}
+.cell img{width:100%;background:#fff}
+.cell div{display:flex;justify-content:space-between;margin-top:10px;font-family:'IBM Plex Mono';font-size:10.5px;color:#999}
+.toolbar{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.toolbar input{background:#0c0c0c;border:1px solid #333;color:#fff;padding:11px 14px;min-width:220px}
+.toolbar button{background:none;border:1px solid #444;color:#fff;font-family:'IBM Plex Mono';font-size:11px;padding:10px 14px;cursor:pointer}
+.toolbar button.on,.toolbar button:hover{background:#B7FF4A;color:#000;border-color:#B7FF4A}
+#toast{position:fixed;bottom:26px;left:50%;transform:translateX(-50%);background:#B7FF4A;color:#000;font-family:'IBM Plex Mono';font-size:12px;padding:10px 22px;opacity:0;transition:.3s}#toast.show{opacity:1}
+@media(max-width:900px){.grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.grid{grid-template-columns:1fr}}
+</style></head><body><div class="wrap">
+<p class="eyebrow" style="color:#B7FF4A">MRJAMESBRAND LTD · Flat illustration set · 12 scenes</p>
+<h1>FLAT<br>PICTURES.</h1>
+<p style="color:#bbb;max-width:70ch;margin-top:10px">Geometric flat scenes in brand ink only. Black, paper, lime, forest, chocolate. Click a scene to copy its SVG code. Files in <b>assets/illustrations</b> + <b>exports/illustrations</b>.</p>
+<div class="toolbar"><input type="text" id="q" placeholder="Filter · e.g. growth, rocket, invoice…"><button id="bgT">CARDS: DARK</button></div>
+<div class="grid" id="grid"></div>
+<p class="spec" style="margin:22px 0 50px;font-family:'IBM Plex Mono';font-size:11px;color:#777">RULES · flat fills only, no gradients · 8px min stroke · lime reserved for action, sun, proof · export SVG straight to web, social, decks.</p>
+</div><div id="toast">COPIED</div>
+<script src="assets/site.js"></script>
+<script>
+let ILLS=["ill-growth-bars|Growth bars|pitch, report, hero stat","ill-brand-stack|Brand stack|system, layers, about","ill-portal-dash|Portal dashboard|product, portal, web","ill-team-proof|Team proof|testimonials, 4.8/5","ill-megaphone|Launch call|campaigns, social","ill-globe-network|Benin to global|reach, network","ill-invoice|Invoice|finance, billing","ill-shield-check|Trust shield|legal, CAC, guarantee","ill-rocket|Launch|growth, start","ill-academy|Academy|courses, guides","ill-chat|Consult|booking, chat","ill-mountain-m|M mountains|cover, story"];
+let grid=document.getElementById('grid'),cache={};
+async function load(n){if(cache[n])return cache[n];let t=await(await fetch('assets/illustrations/'+n+'.svg')).text();cache[n]=t;return t}
+function toast(m){let t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1300)}
+async function render(f=""){grid.innerHTML="";for(let r of ILLS){let[n,t,k]=r.split('|');if(f&&!(n+t+k).toLowerCase().includes(f.toLowerCase()))continue;
+let d=document.createElement('div');d.className='cell';d.innerHTML='<img alt="'+t+'"><div><span>'+n+'.svg</span><span>'+t+'</span></div>';
+d.querySelector('img').src='assets/illustrations/'+n+'.svg';
+d.onclick=async()=>{try{await navigator.clipboard.writeText(await load(n));toast(n.toUpperCase()+' SVG COPIED')}catch(e){toast(n.toUpperCase())}};grid.appendChild(d)}}
+q.oninput=()=>render(q.value);
+bgT.onclick=()=>{let dark=bgT.textContent.includes('DARK');bgT.textContent=dark?'CARDS: LIGHT':'CARDS: DARK';document.querySelectorAll('.cell').forEach(c=>c.style.background=dark?'#F6F4EF':'#111')};
+render();
+</script></body></html>
