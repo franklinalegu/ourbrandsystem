@@ -1,0 +1,497 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MRJAMESBRAND LTD · Brand Board · Build a Brand People Choose</title>
+<meta name="description" content="Official brand board for MRJAMESBRAND LTD · Strategic Brand & Digital Experience Studio, Benin City. Primary mark Artboard3, lockups, colour, typography, in-use mockups.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+:root{
+  --black:#000000; --dark:#1A1A1A; --dark2:#111111; --white:#FFFFFF;
+  --paper:#F6F4EF; --mist:#E5E7EB; --stone:#6B7280;
+  --lime:#B7FF4A; --lime-hover:#C8FF7A; --lime-soft:#E6F5C7;
+  --forest:#0E2F26; --choc:#3B2313;
+  --hair:rgba(0,0,0,.14); --hair-w:rgba(255,255,255,.14);
+  --font-d:'Space Grotesk',sans-serif; --font-b:'Inter',sans-serif; --font-m:'IBM Plex Mono',monospace;
+  --gutter:64px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:var(--font-b);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+::selection{background:var(--lime);color:#000}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--lime);outline-offset:3px}
+img,svg{display:block;max-width:100%}
+.wrap{max-width:1440px;margin:0 auto;padding-left:var(--gutter);padding-right:var(--gutter)}
+@media(max-width:900px){:root{--gutter:20px}}
+@media(min-width:901px) and (max-width:1200px){:root{--gutter:40px}}
+/* progress + cursor */
+#progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--lime);z-index:200}
+#glow{position:fixed;width:520px;height:520px;border-radius:50%;pointer-events:none;z-index:1;
+  background:radial-gradient(circle,rgba(183,255,74,.16) 0%,rgba(183,255,74:0) 60%,transparent 70%);
+  background:radial-gradient(circle,rgba(183,255,74,.16) 0%,transparent 65%);transform:translate(-50%,-50%);left:50%;top:20%;mix-blend-mode:screen}
+@media(pointer:coarse){#glow{display:none}}
+.eyebrow{font-family:var(--font-m);font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase}
+.sec-head{display:flex;align-items:baseline;gap:18px;border-bottom:1px solid var(--hair);padding-bottom:14px;margin-bottom:34px}
+.sec-head .num{font-family:var(--font-d);font-weight:700;font-size:1rem;background:#000;color:var(--lime);padding:4px 10px;letter-spacing:.05em}
+.on-dark .sec-head{border-color:var(--hair-w)}
+.on-dark .sec-head .num{background:var(--lime);color:#000}
+.sec-head h2{font-family:var(--font-d);font-weight:700;letter-spacing:-.03em;font-size:clamp(1.9rem,4vw,3.2rem);line-height:1;text-transform:uppercase}
+.sec-head p{margin-left:auto;font-family:var(--font-m);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;opacity:.6}
+/* top bar */
+.topbar{position:sticky;top:0;z-index:100;background:rgba(0,0,0,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--hair-w)}
+.topbar-in{display:flex;align-items:center;gap:16px;height:62px}
+.brand-mini{display:flex;align-items:center;gap:10px;font-family:var(--font-d);font-weight:700;letter-spacing:.02em;font-size:.85rem;white-space:nowrap}
+.brand-mini svg{width:30px;height:18px}
+nav.main{display:flex;gap:22px;margin-left:24px;font-family:var(--font-m);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase}
+nav.main a{opacity:.7;padding:6px 2px;border-bottom:2px solid transparent}
+nav.main a:hover{opacity:1;border-color:var(--lime);color:var(--lime)}
+.cta{margin-left:auto;background:var(--lime);color:#000;font-family:var(--font-d);font-weight:700;font-size:.82rem;letter-spacing:.02em;padding:10px 20px;border:1px solid var(--lime);border-radius:999px;white-space:nowrap}
+.cta:hover{background:var(--lime-hover)}
+#menuBtn{display:none;margin-left:auto;background:none;border:1px solid var(--hair-w);color:#fff;padding:8px 12px;font-family:var(--font-m);font-size:.75rem}
+@media(max-width:900px){nav.main{display:none}.topbar.open nav.main{display:flex;position:absolute;top:62px;left:0;right:0;background:#000;flex-direction:column;padding:16px 20px;gap:12px;border-bottom:1px solid var(--hair-w)}#menuBtn{display:block}.topbar.open .cta{margin-left:0}.cta{margin-left:0}}
+/* HERO */
+.hero{position:relative;overflow:hidden;background:#000;padding:70px 0 0}
+.hero::before{content:"";position:absolute;inset:0;
+  background:radial-gradient(800px 500px at 18% 8%,rgba(183,255,74,.18),transparent 65%);pointer-events:none}
+.hero::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);
+  background-size:40px 40px;mask-image:radial-gradient(900px 600px at 30% 10%,#000 30%,transparent 75%)}
+.hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:250px 1fr 250px;gap:24px;align-items:center}
+.hero-side{font-size:.86rem;color:#cfcfcf;max-width:250px}
+.hero-side .rule{width:34px;height:3px;background:var(--lime);margin:14px 0}
+.btn-lime{display:inline-block;background:var(--lime);color:#000;font-family:var(--font-d);font-weight:700;padding:13px 24px;border-radius:999px;font-size:.9rem;margin-top:16px;border:1px solid var(--lime)}
+.btn-lime:hover{background:var(--lime-hover)}
+.btn-ghost{display:inline-block;border:1px solid rgba(255,255,255,.35);color:#fff;padding:13px 24px;border-radius:999px;font-family:var(--font-d);font-weight:700;font-size:.9rem}
+.btn-ghost:hover{border-color:var(--lime);color:var(--lime)}
+.badge-card{border:1px solid var(--hair-w);background:#0c0c0c;padding:16px;text-align:center}
+.badge-card .circle{width:52px;height:52px;border-radius:50%;background:var(--lime);display:flex;align-items:center;justify-content:center;margin:0 auto 10px}
+.badge-card b{font-family:var(--font-d);font-size:1.7rem;letter-spacing:-.02em}
+.badge-card span{font-family:var(--font-m);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:#aaa;display:block}
+.avatars{display:flex;justify-content:center;margin:8px 0}
+.avatars i{width:30px;height:30px;border-radius:50%;border:2px solid #0c0c0c;font-style:normal;font-family:var(--font-d);font-weight:700;font-size:.75rem;display:flex;align-items:center;justify-content:center;margin-left:-8px}
+.stars{color:var(--lime);letter-spacing:.2em;font-size:.85rem}
+h1.hero-title{position:relative;z-index:2;text-align:center;font-family:var(--font-d);font-weight:700;
+  font-size:clamp(3rem,12.5vw,11rem);letter-spacing:-.06em;line-height:.85;text-transform:uppercase;margin:26px 0 8px}
+h1 .lime{color:var(--lime)}
+.watermark{position:absolute;left:50%;top:52%;transform:translate(-50%,-50%);width:min(1100px,95vw);opacity:.08;z-index:1;pointer-events:none}
+.flowline{position:relative;z-index:2;text-align:center;font-family:var(--font-m);font-size:.78rem;letter-spacing:.3em;text-transform:uppercase;color:#ddd;margin:18px 0 8px}
+.flowline em{color:var(--lime);font-style:normal}
+.scrollcue{position:relative;z-index:2;text-align:center;padding:26px 0 30px;font-family:var(--font-m);font-size:.7rem;letter-spacing:.25em;color:#888;text-transform:uppercase}
+.scrollcue::after{content:"";display:block;width:1px;height:44px;background:linear-gradient(var(--lime),transparent);margin:10px auto 0;animation:drop 1.8s infinite}
+@keyframes drop{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+.marquee{border-top:1px solid var(--hair-w);border-bottom:1px solid var(--hair-w);background:var(--lime);color:#000;overflow:hidden;white-space:nowrap}
+.marquee div{display:inline-block;padding:12px 0;font-family:var(--font-d);font-weight:700;letter-spacing:.06em;font-size:.95rem;animation:mq 22s linear infinite}
+@keyframes mq{to{transform:translateX(-50%)}}
+@media(max-width:1000px){.hero-grid{grid-template-columns:1fr 1fr}.hero-title-block{grid-column:1/-1;order:-1}.hero-side{max-width:none}}
+@media(max-width:640px){.hero-grid{grid-template-columns:1fr}}
+/* LIGHT SECTIONS */
+.light{background:var(--paper);color:#0a0a0a}
+.white{background:#fff;color:#0a0a0a}
+section{padding:84px 0}
+.lede{font-size:1.05rem;max-width:62ch}
+.mono{font-family:var(--font-m)}
+/* 01 THE MARK */
+.mark-layout{display:grid;grid-template-columns:1.5fr .9fr;gap:22px}
+@media(max-width:1000px){.mark-layout{grid-template-columns:1fr}}
+.mark-stage{background:#fff;border:1px solid var(--hair);padding:34px;position:relative;overflow:hidden}
+.mark-stage .grid8{position:absolute;inset:0;pointer-events:none;opacity:0;transition:.3s;
+  background-image:linear-gradient(rgba(0,0,0,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,.08) 1px,transparent 1px);background-size:12.5% 100%,12.5% 100%}
+.mark-stage.show-grid .grid8{opacity:1}
+#constructor{cursor:pointer}
+#constructor .stem{transition:transform .45s cubic-bezier(.2,.9,.2,1)}
+#constructor:hover .s1{transform:translateX(-16px)}
+#constructor:hover .s3{transform:translateX(16px)}
+#constructor:hover .bridge{transform:translateY(-14px)}
+.stage-tools{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.chip{font-family:var(--font-m);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--hair);padding:8px 14px;background:#fff;cursor:pointer}
+.chip.active,.chip:hover{background:#000;color:var(--lime);border-color:#000}
+.callouts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}
+.callout{border:1px solid var(--hair);padding:12px 14px;background:var(--paper);font-size:.82rem}
+.callout b{font-family:var(--font-m);font-size:.68rem;letter-spacing:.14em;display:block;text-transform:uppercase;margin-bottom:4px}
+.callout b i{color:#000;background:var(--lime);font-style:normal;padding:1px 6px;margin-right:6px}
+.side-stack{display:flex;flex-direction:column;gap:22px}
+.side-card{border:1px solid var(--hair);background:#fff;padding:22px}
+.side-card h3{font-family:var(--font-d);text-transform:uppercase;letter-spacing:-.01em}
+.tag{font-family:var(--font-m);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;display:inline-block;padding:4px 10px;margin:8px 0}
+.tag.ok{background:var(--lime)}.tag.warn{background:#000;color:#fff}.tag.bad{background:#FF5A5A;color:#fff}
+.dodont{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:22px}
+@media(max-width:900px){.dodont{grid-template-columns:1fr 1fr}.callouts{grid-template-columns:1fr}}
+.do{border:1px solid var(--hair);background:#fff;padding:14px;text-align:center}
+.do .box{height:120px;display:flex;align-items:center;justify-content:center;background:var(--paper);margin-bottom:10px;overflow:hidden}
+.do p{font-family:var(--font-m);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase}
+.do.no .box{position:relative}
+.do.no .box::after{content:"✕";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#FF2D2D;font-size:3rem;font-weight:700;background:rgba(255,255,255,.25)}
+/* 02 LOCKUPS */
+.dark{background:var(--black)}
+.lock-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media(max-width:1000px){.lock-grid{grid-template-columns:1fr}}
+.lock-card{background:var(--dark);border:1px solid var(--hair-w);padding:28px;min-height:250px;display:flex;flex-direction:column;justify-content:center;gap:14px}
+.lock-card figure{border:1px solid rgba(255,255,255,.2);padding:26px;display:flex;align-items:center;justify-content:center;gap:14px;min-height:120px}
+.lock-card figcaption{font-family:var(--font-m);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:#bbb}
+.variants{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px}
+@media(max-width:900px){.variants{grid-template-columns:1fr}}
+.var{padding:26px;border:1px solid var(--hair-w);text-align:center}
+.var small{font-family:var(--font-m);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;display:block;margin-top:12px;opacity:.7}
+.favi-row{display:flex;gap:18px;flex-wrap:wrap;margin-top:18px;align-items:stretch}
+.favi{flex:1;min-width:220px;background:var(--dark);border:1px solid var(--hair-w);padding:20px}
+/* 03 COLOR */
+.swatches{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+@media(max-width:1000px){.swatches{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:640px){.swatches{grid-template-columns:1fr 1fr}}
+.sw{border:1px solid var(--hair);background:#fff;cursor:pointer;text-align:left;padding:0;font-family:inherit}
+.sw .c{height:110px;position:relative}
+.sw .c::after{content:"⧉ COPY";position:absolute;right:8px;bottom:8px;font-family:var(--font-m);font-size:.6rem;letter-spacing:.12em;background:rgba(0,0,0,.55);color:#fff;padding:3px 7px;opacity:0}
+.sw:hover .c::after{opacity:1}
+.sw .meta{padding:12px 14px}
+.sw .meta b{font-family:var(--font-d);font-size:.95rem;display:block}
+.sw .meta span{font-family:var(--font-m);font-size:.72rem;color:#555}
+.usagebar{display:flex;height:54px;margin:26px 0 8px;border:1px solid #000}
+.usagebar div{display:flex;align-items:center;justify-content:center;font-family:var(--font-m);font-size:.7rem;letter-spacing:.1em;font-weight:600}
+.contrast{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:20px}
+@media(max-width:900px){.contrast{grid-template-columns:1fr}}
+.contrast .cc{border:1px solid #000;padding:20px}
+.tokens{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+@media(max-width:900px){.tokens{grid-template-columns:1fr}}
+.token{border:1px solid var(--hair);background:#fff;padding:18px;font-family:var(--font-m);font-size:.75rem}
+#toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);background:#000;color:var(--lime);font-family:var(--font-m);font-size:.78rem;letter-spacing:.08em;padding:12px 20px;opacity:0;transition:.3s;z-index:300;pointer-events:none}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+/* 04 TYPE */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid #000}
+@media(max-width:900px){.split{grid-template-columns:1fr}}
+.split>div{padding:40px}
+.split .w{background:#fff;color:#000}
+.split .b{background:#000;color:#fff}
+.specimen{font-family:var(--font-d);font-weight:700;letter-spacing:-.03em;line-height:.95;word-break:break-all}
+.hier{width:100%;border-collapse:collapse;margin-top:24px;font-size:.85rem;background:#fff}
+.hier th{font-family:var(--font-m);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;text-align:left;padding:10px 12px;background:#000;color:var(--lime)}
+.hier td{padding:10px 12px;border-bottom:1px solid var(--hair)}
+.hier td:first-child{font-family:var(--font-d);font-weight:700}
+/* 05 IN USE */
+.mock-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:1000px){.mock-grid{grid-template-columns:1fr}}
+.mock{background:var(--dark);border:1px solid var(--hair-w);padding:24px}
+.mock h3{font-family:var(--font-d);text-transform:uppercase;margin-bottom:4px}
+.mock .spec{font-family:var(--font-m);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--lime);margin-bottom:14px;display:block}
+.browser{border:1px solid rgba(255,255,255,.2);background:#0d0d0d}
+.browser .bar{display:flex;gap:6px;padding:10px;border-bottom:1px solid rgba(255,255,255,.15);align-items:center}
+.browser .bar i{width:10px;height:10px;border-radius:50%;background:#333}
+.browser .bar i:first-child{background:var(--lime)}
+.browser .url{margin-left:10px;font-family:var(--font-m);font-size:.66rem;color:#888;background:#1c1c1c;padding:3px 10px;flex:1}
+.browser .page{padding:28px}
+.browser .page h4{font-family:var(--font-d);font-size:clamp(1.6rem,3vw,2.6rem);line-height:.95;letter-spacing:-.04em;text-transform:uppercase}
+.bizcards{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:560px){.bizcards{grid-template-columns:1fr}}
+.bcard{aspect-ratio:1.7/1;padding:18px;display:flex;flex-direction:column;justify-content:space-between}
+.bcard.front{background:#000;border:1px solid rgba(255,255,255,.25);color:#fff}
+.bcard.back{background:var(--lime);color:#000}
+.bcard b{font-family:var(--font-d)}
+.sign{background:linear-gradient(180deg,#2a2a2a,#141414);border:1px solid rgba(255,255,255,.15);padding:34px 20px;text-align:center}
+.sign .bld{font-family:var(--font-m);font-size:.62rem;letter-spacing:.3em;color:#999;text-transform:uppercase}
+.shop-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+@media(max-width:640px){.shop-row{grid-template-columns:1fr}}
+.tote{background:var(--paper);color:#000;padding:20px;text-align:center;min-height:180px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px}
+.invoice{background:#fff;color:#000;padding:18px;font-size:.75rem}
+.invoice table{width:100%;border-collapse:collapse;font-size:.72rem}
+.invoice td,.invoice th{border-bottom:1px solid #ddd;padding:5px 0;text-align:left}
+.dash{background:#0d0d0d;border:1px solid rgba(255,255,255,.15);padding:16px}
+.dash .bars{display:flex;gap:6px;align-items:end;height:70px;margin-top:10px}
+.dash .bars i{flex:1;background:var(--lime);min-height:8px}
+.social3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.social3 div{background:#0d0d0d;border:1px solid rgba(255,255,255,.15);aspect-ratio:1/1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:10px;text-align:center}
+.gtabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.gtabs button{background:transparent;border:1px solid rgba(255,255,255,.25);color:#fff;font-family:var(--font-m);font-size:.64rem;letter-spacing:.1em;padding:8px 10px;cursor:pointer;text-transform:uppercase}
+.gtabs button.on{background:var(--lime);color:#000;border-color:var(--lime);font-weight:600}
+.gpanel{background:#0d0d0d;border:1px solid rgba(255,255,255,.15);padding:20px;min-height:150px}
+.gpanel h4{font-family:var(--font-d);text-transform:uppercase;color:var(--lime)}
+.gpanel p{font-size:.85rem;color:#ccc}
+/* 06 VERDICT */
+.verdict{background:var(--paper);color:#000}
+.win-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:22px}
+@media(max-width:1000px){.win-grid{grid-template-columns:1fr}}
+.win-list{list-style:none;counter-reset:w}
+.win-list li{counter-increment:w;border-top:1px solid #000;padding:16px 0 16px 64px;position:relative;font-size:.95rem}
+.win-list li::before{content:"0" counter(w);position:absolute;left:0;top:16px;font-family:var(--font-d);font-weight:700;background:#000;color:var(--lime);padding:2px 8px;font-size:.8rem}
+.cta-panel{background:#000;color:#fff;padding:40px;text-align:left;position:relative;overflow:hidden}
+.cta-panel::before{content:"";position:absolute;width:500px;height:300px;right:-120px;top:-120px;background:radial-gradient(closest-side,rgba(183,255,74,.25),transparent)}
+.cta-panel h3{font-family:var(--font-d);font-size:clamp(2rem,4vw,3.4rem);line-height:.92;letter-spacing:-.04em;text-transform:uppercase}
+footer{background:#000;border-top:1px solid var(--hair-w);padding:56px 0 28px;color:#bbb;font-size:.85rem}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:24px}
+@media(max-width:900px){.foot-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.foot-grid{grid-template-columns:1fr}}
+.foot-grid h4{font-family:var(--font-m);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:#fff;margin-bottom:12px}
+.foot-grid a{display:block;padding:4px 0}.foot-grid a:hover{color:var(--lime)}
+.bottom{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-top:1px solid var(--hair-w);margin-top:32px;padding-top:18px;font-family:var(--font-m);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase}
+/* reveal */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}html{scroll-behavior:auto}}
+</style>
+<link rel="stylesheet" href="assets/design-system.css">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<div id="progress" aria-hidden="true"></div>
+<div id="glow" aria-hidden="true"></div>
+<div id="toast" role="status" aria-live="polite">Copied</div>
+
+<header class="topbar" id="topbar">
+  <div class="wrap topbar-in">
+    <a class="brand-mini" href="#top" aria-label="MRJAMESBRAND home">
+      <svg viewBox="0 0 640 360" fill="#B7FF4A" aria-hidden="true"><rect x="10" y="150" width="110" height="180"/><polygon points="130,150 200,50 320,50 362,150 362,330 252,330 252,150"/><polygon points="362,150 432,50 552,50 622,150 622,330 512,330 512,150"/></svg>
+      MRJAMESBRAND&nbsp;LTD
+    </a>
+    <nav class="main" aria-label="Board sections">
+      <a href="#mark">Mark</a><a href="#lockups">Lockups</a><a href="#color">Color</a><a href="#type">Type</a><a href="#inuse">In&nbsp;Use</a>
+    </nav>
+    <a class="cta" href="#verdict">Start a Project ↗</a>
+    <button id="menuBtn" aria-expanded="false" aria-controls="topbar">MENU</button>
+  </div>
+</header>
+
+<main id="top">
+<!-- HERO -->
+<section class="hero" aria-label="Cover">
+  <svg class="watermark" viewBox="0 0 640 360" fill="#ffffff" aria-hidden="true"><rect x="10" y="150" width="110" height="180"/><polygon points="130,150 200,50 320,50 362,150 362,330 252,330 252,150"/><polygon points="362,150 432,50 552,50 622,150 622,330 512,330 512,150"/></svg>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-side rv">
+        <p class="eyebrow" style="color:var(--lime)">Brand Board · V1.0 / 2026</p>
+        <div class="rule"></div>
+        <p><strong style="color:#fff">MRJAMESBRAND LTD</strong> · Strategic Brand &amp; Digital Experience Studio · Benin City, Edo State, Nigeria. Serving West Africa + globally.</p>
+        <p style="margin-top:10px">We build brands, digital experiences, and creative systems that help businesses move forward. Strategy. Brand. Digital. Growth.</p>
+        <a class="btn-lime" href="#mark">Inspect the mark ↓</a>
+      </div>
+      <div></div>
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div class="badge-card rv"><div class="circle"><svg viewBox="0 0 640 360" width="30" height="18" fill="#000" aria-hidden="true"><rect x="10" y="150" width="110" height="180"/><polygon points="130,150 200,50 320,50 362,150 362,330 252,330 252,150"/><polygon points="362,150 432,50 552,50 622,150 622,330 512,330 512,150"/></svg></div><b>99%</b><span>Mark recall · square rule</span></div>
+        <div class="badge-card rv"><div class="stars" aria-label="4.8 out of 5 stars">★★★★★</div><b>4.8/5</b><div class="avatars" aria-hidden="true"><i style="background:#B7FF4A;color:#000">A</i><i style="background:#fff;color:#000">B</i><i style="background:#0E2F26;color:#fff">C</i><i style="background:#1A1A1A;color:#B7FF4A;border-color:#B7FF4A">1K+</i></div><span>1K+ client avatars</span></div>
+      </div>
+    </div>
+    <h1 class="hero-title rv">Build a brand<br><span class="lime">People choose.</span></h1>
+    <p class="flowline">Understand <em>→</em> Trust <em>→</em> Be chosen</p>
+    <p class="scrollcue">Scroll · 01 to 06</p>
+  </div>
+  <div class="marquee" aria-hidden="true"><div>BRANDING · DIGITAL · PRODUCT · CREATIVE TECHNOLOGY · STRATEGY · BRAND · DIGITAL · GROWTH · BRANDING · DIGITAL · PRODUCT · CREATIVE TECHNOLOGY · STRATEGY · BRAND · DIGITAL · GROWTH ·&nbsp;</div></div>
+</section>
+
+<!-- 01 THE MARK -->
+<section class="white" id="mark">
+  <div class="wrap">
+    <div class="sec-head rv"><span class="num">01</span><h2>The Mark</h2><p>Primary · Artboard3 / Upright flat-bottom block M</p></div>
+    <p class="lede rv" style="margin-bottom:22px"><strong>Senior thinking, system before service.</strong> The primary mark is an upright, flat-bottom block <strong>M</strong> · three vertical stems, chamfered 45° top shoulders, geometric, extra-bold. Chosen for legibility at 16&nbsp;px favicon and authority at 11&nbsp;rem hero. Hover the constructor to explode it. Toggle the grid to audit clearspace.</p>
+    <div class="mark-layout">
+      <div class="mark-stage rv" id="stage">
+        <p class="eyebrow">Fig. 01 · Primary constructor · hover to explode</p>
+        <div class="grid8" aria-hidden="true"></div>
+        <svg id="constructor" viewBox="0 0 640 380" width="100%" role="img" aria-label="Primary M mark constructor with three stems" style="margin-top:12px">
+          <g class="stem s1"><rect x="10" y="150" width="110" height="180" fill="#000"/><rect x="10" y="150" width="110" height="10" fill="#B7FF4A" opacity=".9"/></g>
+          <g class="bridge"><polygon points="130,150 200,50 320,50 362,150 362,330 252,330 252,150" fill="#000"/></g>
+          <g class="stem s3"><polygon points="362,150 432,50 552,50 622,150 622,330 512,330 512,150" fill="#000"/></g>
+          <g font-family="IBM Plex Mono,monospace" font-size="15" fill="#000">
+            <text x="30" y="140">x = stem</text><text x="430" y="40">45°</text>
+          </g>
+          <line x1="200" y1="50" x2="240" y2="10" stroke="#000" stroke-width="1.5"/><circle cx="242" cy="8" r="2.5" fill="#B7FF4A" stroke="#000"/>
+        </svg>
+        <div class="stage-tools">
+          <button class="chip active" id="gridToggle" aria-pressed="true">Construction grid · ON</button>
+          <button class="chip" id="explodeBtn" aria-pressed="false">Exploded view</button>
+          <span class="mono" style="font-size:.68rem;letter-spacing:.1em;margin-left:auto">CLEARSPACE = STEM WIDTH · X</span>
+        </div>
+        <div class="callouts">
+          <div class="callout"><b><i>A</i>Shoulder · 45°</b>Chamfered top shoulders. No rounds, no fillets. Cut once, cut clean.</div>
+          <div class="callout"><b><i>B</i>Stem · extra-bold</b>Three vertical stems, equal 110-unit weight. Flat bottoms sit on one baseline.</div>
+          <div class="callout"><b><i>C</i>Flat base</b>Bottom edge is dead flat · premium trust, architectural, signage-ready.</div>
+          <div class="callout"><b><i>D</i>Clearspace + ®</b>Keep one stem-width (x) on all sides. Use ™ until CAC registration is verified · ® only if registered.</div>
+        </div>
+      </div>
+      <div class="side-stack">
+        <div class="side-card rv"><p class="eyebrow">Fig. 02 · Secondary</p><h3>Slanted mark</h3><span class="tag ok">Motion / Secondary</span>
+          <svg viewBox="0 0 640 360" width="100%" role="img" aria-label="Secondary slanted M mark" style="margin:10px 0"><g transform="translate(90,0) skewX(-16)"><rect x="10" y="150" width="110" height="170" fill="#000"/><polygon points="130,150 200,50 320,50 362,150 362,320 335,330 252,330 225,300 252,150" fill="#000"/><polygon points="362,150 432,50 552,50 622,150 622,320 595,330 512,330 485,300 512,150" fill="#000"/></g></svg>
+          <p style="font-size:.85rem;color:#333">Artboard1 / 4 italic. Reserved for motion, loader frames, campaign accents and social stickers. Never as the legal primary.</p></div>
+        <div class="side-card rv"><p class="eyebrow">Fig. 03 · Rejected</p><h3>Chamfered cut</h3><span class="tag bad">Deprecated · Artboard2</span>
+          <svg viewBox="0 0 640 200" width="100%" aria-hidden="true"><g opacity=".35"><polygon points="20,20 120,20 90,90 190,90 220,20 320,20 350,90 320,160 220,160 190,90 90,90 60,160 20,140" fill="#000"/></g><line x1="60" y1="30" x2="330" y2="170" stroke="#FF2D2D" stroke-width="6"/></svg>
+          <p style="font-size:.85rem;color:#333">Rejected: clipped feet and floating cuts break the square rule and fail at small sizes. Do not use.</p></div>
+      </div>
+    </div>
+    <div class="dodont rv">
+      <div class="do no"><div class="box"><svg viewBox="0 0 640 360" width="120" fill="#000"><g transform="scale(1.4,0.7) translate(90,80)"><rect x="10" y="150" width="110" height="180"/><polygon points="130,150 200,50 320,50 362,150 362,330 252,330 252,150"/><polygon points="362,150 432,50 552,50 622,150 622,330 512,330 512,150"/></g></svg></div><p>✕ Don't stretch</p></div>
+      <div class="do no"><div class="box"><svg viewBox="0 0 640 360" width="120" fill="#000"><g opacity=".9"><rect x="10" y="150" width="110" height="180" rx="40"/><polygon points="130,150 200,50 320,50 362,150 362,330 252,330 252,150" opacity=".9"/></g></svg></div><p>✕ Don't round</p></div>
+      <div class="do no"><div class="box"><svg viewBox="0 0 640 360" width="120" fill="#7C3AED"><rect x="10" y="150" width="110" height="180"/><polygon points="130,150 200,50 320,50 362,150 362,330 252,330 252,150"/><polygon points="362,150 432,50 552,50 622,150 622,330 512,330 512,150"/></svg></div><p>✕ Don't recolor</p></div>
+      <div class="do"><div class="box" style="background:#0E2F26"><svg viewBox="0 0 640 360" width="120" fill="#fff"><rect x="10" y="150" width="110" height="180"/><polygon points="130,150 200,50 320,50 362,150 362,330 252,330 252,150"/><polygon points="362,150 432,50 552,50 622,150 622,330 512,330 512,150"/></svg></div><p>✓ Flat field only</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 LOCKUPS -->
+<section class="dark on-dark" id="lockups">
+  <div class="wrap">
+    <div class="sec-head rv"><span class="num">02</span><h2>Lockups</h2><p>Horizontal · Stacked · Short / MRJB</p></div>
+    <div class="lock-grid">
+      <div class="lock-card rv"><p class="eyebrow" style="color:var(--lime)">A · Primary horizontal</p>
+        <figure><svg viewBox="0 0 640 360" width="86" fill="#B7FF4A"><rect x="10" y="150" width="110" height="180"/><polygon points="130,150 200,50 320,50 362,150 362,330 252,330 252,150"/><polygon points="362,150 432,50 552,50 622,150 622,330 512,330 512,150"/></svg><span style="font-family:var(--font-d);font-weight:700;letter-spacing:.04em">MRJAMESBRAND<br><span class="mono" style="font-size:.66rem;letter-spacing:.4em;color:#bbb">LTD · STUDIO</span></span></figure>
+        <figcaption>Default signature · headers, proposals, footer. Min width 140 px.</figcaption></div>
+      <div class="lock-card rv"><p class="eyebrow" style="color:var(--lime)">B · Stacked</p>
+        <figure style="flex-direction:column"><svg viewBox="0 0 640 360" width="72" fill="#fff"><rect x="10" y="150" width="110" height="180"/><polygon points="130,150 200,50 320,50 362,150 362,330 252,330 252,150"/><polygon points="362,150 432,50 552,50 622,150 622,330 512,330 512,150"/></svg><span style="font-family:var(--font-d);font-weight:700;text-align:center">MRJAMESBRAND<br><span class="mono" style="font-size:.66rem;letter-spacing:.5em">LTD</span></span></figure>
+        <figcaption>Square spaces · covers, profile images, signage plaques.</figcaption></div>
+      <div class="lock-card rv"><p class="eyebrow" style="color:var(--lime)">C · Short / MRJB™</p>
+        <figure><span style="font-family:var(--font-d);font-weight:700;font-size:2rem;letter-spacing:-.03em">MRJB<sup class="mono" style="font-size:.7rem;color:var(--lime)">™</sup></span></figure>
+        <figcaption>Product shorthand only. Use ™ until CAC registration verified · ® only if registered.</figcaption></div>
+    </div>
+    <div class="variants">
+      <div class="var rv" style="background:#fff;color:#000"><svg viewBox="0 0 640 360" width="70" fill="#000" style="margin:0 auto"><rect x="10" y="150" width="110" height="180"/><polygon points="130,150 200,50 320,50 362,150 362,330 252,330 252,150"/><polygon points="362,150 432,50 552,50 622,150 622,330 512,330 512,150"/></svg><small>Black on white · print</small></div>
+      <div class="var rv" style="background:#000;color:#fff;border-color:rgba(255,255,255,.2)"><svg viewBox="0 0 640 360" width="70" fill="#fff" style="margin:0 auto"><rect x="10" y="150" width="110" height="180"/><polygon points="130,150 200,50 320,50 362,150 362,330 252,330 252,150"/><polygon points="362,150 432,50 552,50 622,150 622,330 512,330 512,150"/></svg><small>White on black · digital</small></div>
+      <div class="var rv" style="background:#000;border-color:var(--lime)"><svg viewBox="0 0 640 360" width="70" fill="#B7FF4A" style="margin:0 auto"><rect x="10" y="150" width="110" height="180"/><polygon points="130,150 200,50 320,50 362,150 362,330 252,330 252,150"/><polygon points="362,150 432,50 552,50 622,150 622,330 512,330 512,150"/></svg><small style="color:var(--lime)">Lime on black · CTA only</small></div>
+    </div>
+    <div class="favi-row">
+      <div class="favi rv"><p class="eyebrow" style="color:var(--lime)">Favicon 16 / 32</p><div style="display:flex;gap:10px;align-items:end;margin-top:12px"><span style="background:#fff;padding:6px;display:inline-flex"><svg viewBox="0 0 640 360" width="16" height="16" fill="#000"><rect x="10" y="150" width="110" height="180"/><polygon points="130,150 200,50 320,50 362,150 362,330 252,330 252,150"/><polygon points="362,150 432,50 552,50 622,150 622,330 512,330 512,150"/></svg></span><span style="background:#fff;padding:6px;display:inline-flex"><svg viewBox="0 0 640 360" width="32" height="32" fill="#000"><rect x="10" y="150" width="110" height="180"/><polygon points="130,150 200,50 320,50 362,150 362,330 252,330 252,150"/><polygon points="362,150 432,50 552,50 622,150 622,330 512,330 512,150"/></svg></span><span class="mono" style="font-size:.68rem;color:#888">Legible at 16 px · flat base holds.</span></div></div>
+      <div class="favi rv"><p class="eyebrow" style="color:var(--lime)">App icon / OG strip</p><div style="display:flex;gap:10px;margin-top:12px;align-items:center"><span style="background:var(--lime);width:52px;height:52px;display:inline-flex;align-items:center;justify-content:center"><svg viewBox="0 0 640 360" width="34" fill="#000"><rect x="10" y="150" width="110" height="180"/><polygon points="130,150 200,50 320,50 362,150 362,330 252,330 252,150"/><polygon points="362,150 432,50 552,50 622,150 622,330 512,330 512,150"/></svg></span><span style="background:#fff;color:#000;font-family:var(--font-d);font-weight:700;font-size:.72rem;padding:12px 16px;flex:1">BUILD A BRAND PEOPLE CHOOSE →</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 COLOUR -->
+<section class="light" id="color">
+  <div class="wrap">
+    <div class="sec-head rv"><span class="num">03</span><h2>Colour</h2><p>Click any swatch to copy hex</p></div>
+    <p class="lede rv" style="margin-bottom:22px">Paper leads, black anchors, lime converts. White does 70% of the work. <strong>Lime (#B7FF4A) is 10% · CTA, highlight, dots and arrows only.</strong> Never lime text on white; use black on lime.</p>
+    <div class="swatches rv" id="swatches">
+      <button class="sw" data-hex="#FFFFFF"><span class="c" style="background:#fff;border-bottom:1px solid var(--hair)"></span><span class="meta"><b>White</b><span>#FFFFFF · FIELD 70%</span></span></button>
+      <button class="sw" data-hex="#000000"><span class="c" style="background:#000"></span><span class="meta"><b>Black</b><span>#000000 · ANCHOR</span></span></button>
+      <button class="sw" data-hex="#F6F4EF"><span class="c" style="background:#F6F4EF"></span><span class="meta"><b>Paper</b><span>#F6F4EF · CANVAS</span></span></button>
+      <button class="sw" data-hex="#E5E7EB"><span class="c" style="background:#E5E7EB"></span><span class="meta"><b>Mist</b><span>#E5E7EB · HAIRLINE</span></span></button>
+      <button class="sw" data-hex="#1A1A1A"><span class="c" style="background:#1A1A1A"></span><span class="meta"><b>Graphite</b><span>#1A1A1A · CARD</span></span></button>
+      <button class="sw" data-hex="#6B7280"><span class="c" style="background:#6B7280"></span><span class="meta"><b>Stone / Grey</b><span>#6B7280 · CAPTION</span></span></button>
+      <button class="sw" data-hex="#B7FF4A"><span class="c" style="background:#B7FF4A"></span><span class="meta"><b>Lime ★ CTA</b><span>#B7FF4A · 10% ONLY</span></span></button>
+      <button class="sw" data-hex="#E6F5C7"><span class="c" style="background:#E6F5C7"></span><span class="meta"><b>Lime-soft</b><span>#E6F5C7 · TINT</span></span></button>
+      <button class="sw" data-hex="#0E2F26"><span class="c" style="background:#0E2F26"></span><span class="meta"><b>Forest</b><span>#0E2F26 · PORTAL</span></span></button>
+      <button class="sw" data-hex="#3B2313"><span class="c" style="background:#3B2313"></span><span class="meta"><b>Chocolate</b><span>#3B2313 · PORTAL ALT</span></span></button>
+    </div>
+    <div class="usagebar rv" role="img" aria-label="Usage ratio 70 white, 20 black, 10 lime"><div style="flex:70;background:#fff;border-right:1px solid #000">70 · WHITE / PAPER</div><div style="flex:20;background:#000;color:#fff">20 · BLACK</div><div style="flex:10;background:var(--lime);color:#000">10</div></div>
+    <div class="contrast">
+      <div class="cc rv" style="background:#000;color:#fff"><p class="eyebrow" style="color:var(--lime)">Access · 21:1</p><p style="font-family:var(--font-d);font-weight:700;font-size:1.4rem">Black / White · AAA</p><p class="mono" style="font-size:.72rem">Body text, headlines, signage. Always safe.</p></div>
+      <div class="cc rv" style="background:var(--lime);color:#000"><p class="eyebrow">Access · 15.2:1</p><p style="font-family:var(--font-d);font-weight:700;font-size:1.4rem">Lime / Black · AAA</p><p class="mono" style="font-size:.72rem">Black type on lime buttons only. Never lime on white.</p></div>
+      <div class="cc rv" style="background:#fff"><p class="eyebrow">Theme tokens</p><p class="mono" style="font-size:.74rem">--bg: #F6F4EF · --ink: #000<br>--card: #1A1A1A · --cta: #B7FF4A<br>DARK: --bg #000 · --ink #fff</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 TYPE -->
+<section class="white" id="type">
+  <div class="wrap">
+    <div class="sec-head rv"><span class="num">04</span><h2>Typography</h2><p>Space Grotesk · Inter · Plex Mono</p></div>
+    <div class="split rv">
+      <div class="w"><p class="eyebrow">Display · Space Grotesk 700</p>
+        <p class="specimen" style="font-size:clamp(3rem,7vw,6rem)">AaBbGg<br>0123→↗</p>
+        <p class="mono" style="font-size:.72rem;margin-top:12px">TRACKING −0.03em DEMO · BUILD A BRAND PEOPLE CHOOSE. Display at 18 px and above only. Tight, loud, editorial.</p></div>
+      <div class="b"><p class="eyebrow" style="color:var(--lime)">Body · Inter 400 · Alt DM Sans</p>
+        <p style="font-size:1rem;line-height:1.65;letter-spacing:0">Editorial, not decorative. Strategy before pixels: we interview customers, map the decision journey from Understand → Trust → Be Chosen, then design the system that carries it. Body is always Inter, zero-tracking, 1.65 line-height.</p>
+        <p class="mono" style="font-size:.72rem;margin-top:14px;color:var(--lime)">UTILITY · IBM PLEX MONO / SPACE MONO · EYEBROW 0.72REM · 700 · 0.18EM · UPPERCASE</p></div>
+    </div>
+    <table class="hier rv" aria-label="Type hierarchy">
+      <tr><th>Style</th><th>Font / Size</th><th>Usage</th></tr>
+      <tr><td>H1 · Build a brand</td><td class="mono">Space Grotesk 700 · clamp(3rem,12.5vw,11rem) · −0.06em · 0.85</td><td>Hero cover only</td></tr>
+      <tr><td>H2 · Section</td><td class="mono">Space Grotesk 700 · 3.2rem · −0.03em</td><td>01–06 numbered heads</td></tr>
+      <tr><td>H3 · Card</td><td class="mono">Space Grotesk 600 · 1.4rem</td><td>Lockup / mock titles</td></tr>
+      <tr><td>Lede</td><td class="mono">Inter 400 · 1.05rem · 1.6</td><td>Section intros</td></tr>
+      <tr><td>Body / Caption</td><td class="mono">Inter 400–500 · .9 / .78rem</td><td>Paragraphs, captions</td></tr>
+      <tr><td>Eyebrow / Spec</td><td class="mono">Plex Mono 600 · .72rem · .18em UPPER</td><td>Labels, annotations</td></tr>
+    </table>
+    <p class="mono rv" style="font-size:.74rem;margin-top:14px">DO · Space Grotesk 18 px+ headlines only · Inter zero-tracking body 1.65 &nbsp;|&nbsp; DON'T · never set body paragraphs in Space Grotesk.</p>
+  </div>
+</section>
+
+<!-- 05 IN USE -->
+<section class="dark on-dark" id="inuse">
+  <div class="wrap">
+    <div class="sec-head rv"><span class="num">05</span><h2>In Use · Mockups</h2><p>Pure CSS · no stock · square rule</p></div>
+    <div class="mock-grid">
+      <div class="mock rv"><span class="spec">A · Website hero · 1440px</span><h3>Site hero · browser frame</h3>
+        <div class="browser"><div class="bar"><i></i><i></i><i></i><span class="url">mrjamesbrand.com · ● live</span></div>
+        <div class="page"><p class="mono" style="font-size:.62rem;letter-spacing:.2em;color:var(--lime)">STRATEGY · BRAND · DIGITAL · GROWTH</p><h4>Build a brand<br><span style="color:var(--lime)">people choose.</span></h4><div style="display:flex;gap:8px;margin-top:12px"><span style="background:var(--lime);color:#000;font-family:var(--font-d);font-weight:700;font-size:.7rem;padding:8px 14px;border-radius:999px">Start a Project ↗</span><span style="border:1px solid #444;font-size:.7rem;padding:8px 14px;border-radius:999px">Growth System™</span></div></div></div></div>
+      <div class="mock rv"><span class="spec">B · Print · 85 × 55 mm + bleed</span><h3>Business card · front / back</h3>
+        <div class="bizcards"><div class="bcard front"><span class="mono" style="font-size:.58rem;letter-spacing:.2em">MRJAMESBRAND LTD</span><svg viewBox="0 0 640 360" width="64" fill="#B7FF4A"><rect x="10" y="150" width="110" height="180"/><polygon points="130,150 200,50 320,50 362,150 362,330 252,330 252,150"/><polygon points="362,150 432,50 552,50 622,150 622,330 512,330 512,150"/></svg><b style="font-size:.72rem">Benin City · Global delivery</b></div>
+        <div class="bcard back"><b style="font-size:1rem">BUILD A BRAND<br>PEOPLE CHOOSE.</b><span class="mono" style="font-size:.6rem">STRATEGY · BRAND · DIGITAL · GROWTH →</span></div></div></div>
+      <div class="mock rv"><span class="spec">C · Environmental · HQ facade</span><h3>Building signage · Benin City HQ</h3>
+        <div class="sign"><p class="bld">MRJAMESBRAND LTD · HQ · Benin City</p><p style="font-family:var(--font-d);font-weight:700;font-size:clamp(1.6rem,3.4vw,2.6rem);letter-spacing:.02em;margin:10px 0">M · MRJAMESBRAND</p><p class="mono" style="font-size:.62rem;letter-spacing:.25em;color:var(--lime)">FLAT-BOTTOM STEEL LETTERS · MATTE BLACK</p></div></div>
+      <div class="mock rv"><span class="spec">D · Merch + ops · tote / invoice / portal</span><h3>Tote · invoice · dashboard</h3>
+        <div class="shop-row"><div class="tote"><svg viewBox="0 0 640 360" width="54" fill="#000"><rect x="10" y="150" width="110" height="180"/><polygon points="130,150 200,50 320,50 362,150 362,330 252,330 252,150"/><polygon points="362,150 432,50 552,50 622,150 622,330 512,330 512,150"/></svg><b style="font-family:var(--font-d);font-size:.68rem">PEOPLE CHOOSE.</b></div>
+        <div class="invoice"><b>INVOICE · 0042</b><table><tr><th>Item</th><th>₦</th></tr><tr><td>Brand sprint</td><td>—</td></tr><tr><td>Web experience</td><td>—</td></tr><tr><td><b>Total</b></td><td><b>Paid ✓</b></td></tr></table></div>
+        <div class="dash"><span class="mono" style="font-size:.6rem;color:var(--lime)">PORTAL · GROWTH ▲ 78%</span><div class="bars"><i style="height:30%"></i><i style="height:55%"></i><i style="height:40%"></i><i style="height:78%;background:#fff"></i><i style="height:64%"></i></div></div></div></div>
+      <div class="mock rv"><span class="spec">E · Social kit · 1080 × 1080</span><h3>Instagram 3-tile + X avatar</h3>
+        <div class="social3"><div><b style="font-family:var(--font-d)">01<br>BRAND</b><span class="mono" style="font-size:.58rem;color:var(--lime)">UNDERSTAND →</span></div><div style="background:var(--lime);color:#000"><b style="font-family:var(--font-d)">PEOPLE<br>CHOOSE.</b></div><div><span class="stars">★★★★★</span><b style="font-family:var(--font-d)">4.8/5</b><span class="mono" style="font-size:.58rem">1K+ PROOF</span></div></div></div>
+      <div class="mock rv"><span class="spec">F · Growth System™ · 8 stages</span><h3>Discover → Optimize</h3>
+        <div class="gtabs" role="tablist" aria-label="Growth system stages">
+          <button class="on" data-g="0">01 Discover</button><button data-g="1">02 Define</button><button data-g="2">03 Design</button><button data-g="3">04 Build</button><button data-g="4">05 Launch</button><button data-g="5">06 Measure</button><button data-g="6">07 Scale</button><button data-g="7">08 Optimize</button>
+        </div>
+        <div class="gpanel"><h4 id="gTitle">01 · Discover</h4><p id="gBody">Understand before anything. Customer interviews, market audit and decision-journey mapping in Benin City + remote.</p><div style="height:6px;background:#222;margin-top:12px"><div id="gBar" style="height:100%;width:12%;background:var(--lime)"></div></div></div></div>
+    </div>
+    <p class="mono rv" style="font-size:.7rem;letter-spacing:.12em;color:#888;margin-top:16px">SELECTED CLIENTS · FINTECH · REAL ESTATE · HOSPITALITY · EDUCATION · LOGISTICS · 78% PROJECTS COMPLETE MOCK → FULL CASE FILES ON REQUEST.</p>
+  </div>
+</section>
+
+<!-- 06 VERDICT -->
+<section class="verdict" id="verdict">
+  <div class="wrap">
+    <div class="sec-head rv"><span class="num">06</span><h2>Verdict + Next steps</h2><p>Why Artboard3 wins</p></div>
+    <div class="win-grid">
+      <ol class="win-list rv">
+        <li><strong>Legibility.</strong> Flat bottoms + equal stems hold at 16 px favicon and at billboard scale.</li>
+        <li><strong>Premium trust.</strong> Architectural geometry reads senior, systematic · strategy before decoration.</li>
+        <li><strong>Square rule.</strong> Zero rounds. Every radius removed; the system stays sharp across print, steel and pixels.</li>
+        <li><strong>Scalable.</strong> One mark, three lockups (horizontal / stacked / MRJB™), infinite mockups.</li>
+        <li><strong>Timeless.</strong> No trend chamfers, no gradient fills · black, white, paper + a 10% lime strike.</li>
+      </ol>
+      <div class="cta-panel rv"><p class="eyebrow" style="color:var(--lime)">Next step · 2026 bookings open</p><h3>Let's build something meaningful.</h3>
+        <p style="color:#ccc;font-size:.9rem;margin:12px 0 20px">Benin City · Global delivery. Strategy · Brand · Digital · Growth.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;position:relative;z-index:2"><a class="btn-lime" href="mailto:hello@mrjamesbrand.com">Start a Project ↗</a><a class="btn-ghost" href="#mark">Revisit the mark ↑</a></div></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div><a class="brand-mini" href="#top" style="margin-bottom:12px"><svg viewBox="0 0 640 360" width="34" fill="#B7FF4A"><rect x="10" y="150" width="110" height="180"/><polygon points="130,150 200,50 320,50 362,150 362,330 252,330 252,150"/><polygon points="362,150 432,50 552,50 622,150 622,330 512,330 512,150"/></svg>MRJAMESBRAND</a>
+        <p>Strategic Brand &amp; Digital Experience Studio.<br>Benin City, Edo State, Nigeria.<br>Serving West Africa + globally.</p></div>
+      <div><h4>Studio</h4><a href="#mark">The Mark</a><a href="#lockups">Lockups</a><a href="#inuse">Selected Work</a><a href="#verdict">Start a Project</a></div>
+      <div><h4>Resources</h4><a href="#color">Colour Tokens</a><a href="#type">Typography</a><a href="#inuse">Growth System™</a><a href="#top">Press Kit</a></div>
+      <div><h4>Legal</h4><a href="#lockups">™ / ® Usage</a><a href="#verdict">© 2026 MRJAMESBRAND LTD</a><a href="#top">Privacy</a><a href="#top">Terms</a></div>
+    </div>
+    <div class="bottom"><span>© 2026 MRJAMESBRAND LTD · Benin City · Global delivery</span><span>Strategy · Brand · Digital · Growth</span><span>Editorial · not decorative ↑</span></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var bar=document.getElementById('progress'),glow=document.getElementById('glow');
+  function onScroll(){var h=document.documentElement,st=h.scrollTop,mx=h.scrollHeight-h.clientHeight;bar.style.width=(mx>0?(st/mx*100):0)+'%';}
+  document.addEventListener('scroll',onScroll,{passive:true});onScroll();
+  document.addEventListener('mousemove',function(e){if(window.matchMedia('(pointer:coarse)').matches)return;glow.style.left=e.clientX+'px';glow.style.top=e.clientY+'px';},{passive:true});
+  // reveal
+  var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}})},{threshold:.12});
+  document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+  // grid + explode
+  var stage=document.getElementById('stage'),gt=document.getElementById('gridToggle'),ex=document.getElementById('explodeBtn'),con=document.getElementById('constructor');
+  stage.classList.add('show-grid');
+  gt.addEventListener('click',function(){var on=stage.classList.toggle('show-grid');gt.textContent='Construction grid · '+(on?'ON':'OFF');gt.classList.toggle('active',on);gt.setAttribute('aria-pressed',on);});
+  function setExplode(v){con.querySelector('.s1').style.transform=v?'translateX(-22px)':'';con.querySelector('.s3').style.transform=v?'translateX(22px)':'';con.querySelector('.bridge').style.transform=v?'translateY(-18px)':'';ex.classList.toggle('active',v);ex.setAttribute('aria-pressed',v);}
+  ex.addEventListener('click',function(){setExplode(ex.getAttribute('aria-pressed')!=='true')});
+  // copy hex
+  var toast=document.getElementById('toast'),t;
+  document.querySelectorAll('.sw').forEach(function(b){b.addEventListener('click',function(){var hex=b.dataset.hex;function done(){toast.textContent='Copied '+hex;toast.classList.add('show');clearTimeout(t);t=setTimeout(function(){toast.classList.remove('show')},1600);}if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(hex).then(done,done);}else{var i=document.createElement('input');i.value=hex;document.body.appendChild(i);i.select();try{document.execCommand('copy')}catch(e){}i.remove();done();}})});
+  // growth tabs
+  var data=[['01 · Discover','Understand before anything. Customer interviews, market audit and decision-journey mapping in Benin City + remote.'],['02 · Define','Positioning, promise and pillars: 01 Brand / 02 Experience / 03 Growth. One sharp strategy doc.'],['03 · Design','Identity, lockups and art direction. Square rule, hairline grids, lime used once · on purpose.'],['04 · Build','Web experience + creative systems. Fast, accessible, vanilla · no heavy frameworks.'],['05 · Launch','Rollout kits: social tiles, signage, print and portal assets. Nothing decorative.'],['06 · Measure','Proof over promises: 4.8/5 rating, 1K+ avatars, completion dashboards.'],['07 · Scale','Playbooks and templates so internal teams ship on-brand without the studio.'],['08 · Optimize','Quarterly iteration: test, refine, compound. Brands that move forward stay chosen.']];
+  var btns=document.querySelectorAll('.gtabs button'),gT=document.getElementById('gTitle'),gB=document.getElementById('gBody'),gBar=document.getElementById('gBar');
+  btns.forEach(function(btn){btn.addEventListener('click',function(){btns.forEach(function(x){x.classList.remove('on')});btn.classList.add('on');var i=+btn.dataset.g;gT.textContent=data[i][0];gB.textContent=data[i][1];gBar.style.width=((i+1)/8*100)+'%';})});
+  // mobile menu
+  var top=document.getElementById('topbar'),mb=document.getElementById('menuBtn');
+  mb.addEventListener('click',function(){var open=top.classList.toggle('open');mb.setAttribute('aria-expanded',open);});
+  top.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){top.classList.remove('open');mb.setAttribute('aria-expanded','false')})});
+})();
+</script>
+<script src="assets/site.js"></script>
+</body>
+</html>

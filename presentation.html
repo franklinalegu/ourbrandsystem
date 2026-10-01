@@ -1,0 +1,251 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MRJAMESBRAND LTD · Interactive Brand Presentation</title>
+<link rel="icon" href="exports/favicon.svg">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+:root{--black:#000;--dark:#1A1A1A;--white:#fff;--paper:#F6F4EF;--mist:#E5E7EB;--stone:#6B7280;--lime:#B7FF4A;--lime2:#C8FF7A;--forest:#0E2F26;--choc:#3B2313}
+*{box-sizing:border-box;margin:0}html{scrollbar-color:var(--lime) #111}
+body{font-family:Inter,system-ui;background:#080808;color:#fff;overflow:hidden}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--lime)}
+.spec{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;color:#8f8c84}
+/* loader */
+#loader{position:fixed;inset:0;background:#000;z-index:500;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:14px;transition:opacity .5s}
+#loader.done{opacity:0;pointer-events:none}#loadPct{font-family:'Space Grotesk';font-size:64px;font-weight:700}#loadPct em{color:var(--lime);font-style:normal}
+#loadBar{width:min(420px,70vw);height:3px;background:#222}#loadBar i{display:block;height:100%;width:0;background:var(--lime)}
+/* cursor + progress */
+#cursor{position:fixed;width:340px;height:340px;border-radius:50%;pointer-events:none;z-index:3;background:radial-gradient(circle,rgba(183,255,74,.14),transparent 65%);transform:translate(-50%,-50%);mix-blend-mode:screen}
+#progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--lime);z-index:400}
+#toast{position:fixed;bottom:84px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--lime);color:#000;font-family:'IBM Plex Mono';font-size:12px;letter-spacing:.08em;padding:10px 20px;opacity:0;transition:.3s;z-index:450}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.deck{height:100vh;display:flex;flex-direction:column}
+.bar{display:flex;align-items:center;gap:18px;padding:12px 24px;border-bottom:1px solid rgba(255,255,255,.12);font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em}
+.bar b{font-family:'Space Grotesk';letter-spacing:.28em}
+.bar .tools{margin-left:auto;display:flex;gap:8px}
+.bar button{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.3);font-family:'IBM Plex Mono';font-size:11px;padding:7px 12px;cursor:pointer}
+.bar button:hover{border-color:var(--lime);color:var(--lime)}
+.bar button.on{background:var(--lime);color:#000;border-color:var(--lime)}
+.slides{flex:1;position:relative;overflow:hidden}
+.slide{position:absolute;inset:0;display:none;padding:48px 56px;overflow:auto;opacity:0;transform:translateX(40px);transition:opacity .45s cubic-bezier(.22,1,.36,1),transform .45s cubic-bezier(.22,1,.36,1)}
+.slide.active{display:grid;opacity:1;transform:none}
+.slide.enter-left{transform:translateX(-40px)}
+.s1{background:radial-gradient(800px 500px at 18% 8%,rgba(183,255,74,.18),transparent),#000}
+h1{font-family:'Space Grotesk';font-weight:700;font-size:clamp(3rem,9vw,8rem);line-height:.88;letter-spacing:-.05em}
+h1 span{color:var(--lime)}h2{font-family:'Space Grotesk';font-size:clamp(1.8rem,4vw,3.4rem);line-height:1;letter-spacing:-.03em}
+p.lede{max-width:62ch;line-height:1.65;color:#d6d3cb}
+.card{background:var(--dark);border:1px solid rgba(255,255,255,.12);padding:22px;transition:transform .3s,border-color .3s}
+.card:hover{transform:translateY(-4px);border-color:rgba(183,255,74,.5)}
+.light{background:var(--paper);color:#111}.light .card{background:#fff;border-color:#e2ded2;color:#111}
+.light p.lede{color:#444}
+.swatches{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:16px}
+.sw{border:1px solid rgba(0,0,0,.12);background:#fff;color:#111;cursor:pointer;transition:transform .25s}.sw:hover{transform:scale(1.04)}
+.sw i{display:block;height:64px}.sw div{padding:8px;font-family:'IBM Plex Mono';font-size:11px}
+.mockrow{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px}
+.mock{background:#111;border:1px solid rgba(255,255,255,.14);min-height:200px;padding:18px;display:flex;flex-direction:column;justify-content:space-between;gap:10px;transition:.3s}
+.mock:hover{border-color:var(--lime)}.mock.bc-lime{background:var(--lime);color:#000;border:none}.mock.bc-white{background:#fff;color:#000}
+.nav{display:flex;align-items:center;gap:10px;padding:12px 24px;border-top:1px solid rgba(255,255,255,.12)}
+.nav button{background:#fff;color:#000;border:none;padding:10px 18px;font-weight:600;cursor:pointer}
+.nav button.ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.3)}
+.dots{display:flex;gap:6px;margin-left:auto;flex-wrap:wrap}.dots i{width:22px;height:4px;background:#333;cursor:pointer}.dots i.on{background:var(--lime)}
+ul.tight li{margin:7px 0;line-height:1.5}kbd{border:1px solid #444;padding:2px 8px;font-family:'IBM Plex Mono';font-size:11px}
+/* playground */
+.play{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:14px}
+#playStage{border:1px solid rgba(255,255,255,.15);min-height:280px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;background:#000;transition:background .3s;position:relative;overflow:hidden}
+#playStage.showgrid::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(183,255,74,.15) 1px,transparent 1px),linear-gradient(90deg,rgba(183,255,74,.15) 1px,transparent 1px);background-size:28px 28px}
+#playLogo{transition:width .2s}#playWord{font-family:'Space Grotesk';font-weight:700}
+.ctrls label{display:block;font-family:'IBM Plex Mono';font-size:11px;margin:10px 0 4px;color:#aaa}
+.ctrls input[type=range]{width:100%;accent-color:var(--lime)}
+.btnrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}.btnrow button{border:1px solid #444;background:transparent;color:#fff;font-family:'IBM Plex Mono';font-size:11px;padding:8px 12px;cursor:pointer}.btnrow button.on,.btnrow button:hover{background:var(--lime);color:#000;border-color:var(--lime)}
+/* compare */
+.compare{position:relative;height:220px;border:1px solid rgba(255,255,255,.15);overflow:hidden;margin-top:12px;user-select:none}
+.compare .a,.compare .b{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-weight:900}
+.compare .a{background:#fff;color:#000}.compare .b{background:#000;color:#fff;font-size:64px}
+.compare input{position:absolute;inset:0;width:100%;opacity:0;cursor:ew-resize}
+.compare .handle{position:absolute;top:0;bottom:0;width:3px;background:var(--lime);left:50%}
+/* type tester */
+#typePreview{font-family:'Space Grotesk';font-weight:700;font-size:44px;line-height:1;letter-spacing:-.03em;border:1px solid rgba(255,255,255,.15);padding:18px;margin-top:10px;min-height:110px;background:#0c0c0c}
+#typeInput{width:100%;background:#000;border:1px solid #444;color:#fff;padding:12px;font-size:15px;margin-top:10px}
+#typeInput:focus{border-color:var(--lime);outline:none}
+/* growth tabs */
+.gtabs{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px}.gtabs button{border:none;border-top:2px solid #333;background:transparent;color:#bbb;font-family:'IBM Plex Mono';font-size:11px;padding:10px 8px;cursor:pointer;flex:1;min-width:90px}.gtabs button.on{border-color:var(--lime);color:var(--lime)}
+#gpanel{border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.03);padding:16px;margin-top:10px;min-height:90px}
+/* overview */
+#overview{position:fixed;inset:0;background:rgba(0,0,0,.94);z-index:300;display:none;padding:40px;overflow:auto}
+#overview.open{display:block}#ovGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+#ovGrid div{border:1px solid #333;padding:18px;cursor:pointer;font-family:'Space Grotesk';font-weight:700}#ovGrid div:hover{border-color:var(--lime);color:var(--lime)}#ovGrid span{display:block;font-family:'IBM Plex Mono';font-weight:400;font-size:10px;color:#888;margin-top:6px}
+/* marquee */
+.marquee{overflow:hidden;white-space:nowrap;border-top:1px solid rgba(255,255,255,.12);border-bottom:1px solid rgba(255,255,255,.12);margin-top:18px}
+.marquee div{display:inline-block;padding:10px 0;animation:mq 18s linear infinite;font-family:'IBM Plex Mono';font-size:12px;letter-spacing:.16em}
+@keyframes mq{to{transform:translateX(-50%)}}
+.reveal{opacity:0;transform:translateY(18px);transition:.6s cubic-bezier(.22,1,.36,1)}.slide.active .reveal{opacity:1;transform:none}
+.slide.active .reveal:nth-child(2){transition-delay:.08s}.slide.active .reveal:nth-child(3){transition-delay:.16s}
+#particles{position:absolute;inset:0;pointer-events:none}
+@media(max-width:900px){.slide{padding:24px}.play{grid-template-columns:1fr}body{overflow:auto}.deck{height:auto}.slides{overflow:visible}.slide{position:static;display:grid;opacity:1;transform:none}#cursor{display:none}}
+@media print{.nav,.bar,#cursor,#toast{display:none}.slide{position:static;display:grid;opacity:1;page-break-after:always}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+<link rel="stylesheet" href="assets/design-system.css">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<div id="loader"><div id="loadPct">0<em>%</em></div><div id="loadBar"><i></i></div><span class="spec">LOADING BRAND SYSTEM…</span></div>
+<div id="cursor"></div><div id="progress"></div><div id="toast">COPIED</div>
+<div class="deck">
+<div class="bar"><b>M · MRJAMESBRAND LTD</b><span id="count">01 / 13</span><span class="tools">
+<button id="bOverview" title="Overview (O)">GRID ▦</button><button id="bFull" title="Fullscreen (F)">FULL ⛶</button><button id="bAuto" title="Autoplay">AUTO ▶</button>
+</span><span style="color:var(--lime)">STRATEGY · BRAND · DIGITAL · GROWTH</span></div>
+<div class="slides" id="slides">
+
+<section class="slide active s1" data-t="Cover"><div class="reveal">
+<p class="eyebrow">Interactive presentation · Benin City → Global · 2026 · press O for grid</p>
+<h1>BUILD A<br>BRAND<br><span>PEOPLE CHOOSE.</span></h1>
+<p class="lede" style="margin-top:16px">MRJAMESBRAND LTD · Strategic Brand &amp; Digital Experience Studio. We build brands, digital experiences and creative systems that help businesses move forward.</p>
+<div class="marquee"><div>BRANDING · DIGITAL · PRODUCT · CREATIVE TECHNOLOGY · STRATEGY · BRAND · DIGITAL · GROWTH ·&nbsp;BRANDING · DIGITAL · PRODUCT · CREATIVE TECHNOLOGY · STRATEGY · BRAND · DIGITAL · GROWTH ·&nbsp;</div></div>
+<p class="spec" style="margin-top:10px">HOVER THE MARK · IT TILTS · MOVE MOUSE · LIME GLOW FOLLOWS · ← → NAVIGATE</p>
+</div><div class="reveal" style="display:flex;align-items:center;justify-content:center;position:relative">
+<canvas id="particles"></canvas>
+<img id="heroMark" src="exports/mrjames-m-reversed.svg" alt="M" style="width:min(420px,80%);transition:transform .2s">
+</div></section>
+
+<section class="slide s1" data-t="Choice"><div class="reveal">
+<p class="eyebrow">01 · The choice · drag the slider</p><h2>Why Artboard3 wins.</h2>
+<div class="compare" id="compare"><div class="a"><img src="exports/mrjames-m-primary.svg" style="height:130px"><b>&nbsp;UPRIGHT · MASTER</b></div><div class="b" id="cmpB" style="clip-path:inset(0 0 0 50%)"><span style="transform:skewX(-12deg);font-size:72px">///</span><b style="font-size:14px;font-family:'IBM Plex Mono'">&nbsp;SLANTED · MOTION ONLY</b></div><div class="handle" id="cmpH"></div><input type="range" min="0" max="100" value="50" id="cmpR" aria-label="Compare"></div>
+<ul class="tight" style="margin-top:12px"><li><b>Legibility</b> · M at 16px vs /// arrows</li><li><b>Trust</b> · flat base, architectural, premium</li><li><b>Rule</b> · square not round, 100% square</li></ul>
+</div><div class="reveal"><div class="card"><p class="spec">HOVER TO EXPLODE</p><svg id="explode" viewBox="0 0 680 420" style="width:100%;margin-top:8px"><g fill="#fff"><rect id="e1" x="30" y="160" width="115" height="200"/><path id="e2" d="M145 160 L215 60 H355 L425 160 L425 360 H310 V160 H145 Z"/><path id="e3" d="M425 160 L495 60 H635 L680 145 V360 H565 V160 H425 Z"/></g></svg><p class="spec">3 STEMS · STEM 115 · GAP 70 · POINT-CONTACT VALLEYS</p></div></div></section>
+
+<section class="slide light" data-t="Playground"><div class="reveal" style="grid-column:1/-1">
+<p class="eyebrow" style="color:#3B2313">02 · Playground · try it live</p><h2 style="color:#111">One mark. Every context.</h2>
+<div class="play"><div id="playStage"><img id="playLogo" src="exports/mrjames-m-primary.svg" style="width:240px"><div id="playWord" style="color:#000;letter-spacing:8px">MRJAMESBRAND LTD</div><span class="spec" id="playSpec">240PX · TRACKING 8 · ON WHITE</span></div>
+<div class="ctrls card"><label>SIZE <span id="sizeVal">240</span>PX</label><input type="range" id="rSize" min="60" max="420" value="240">
+<label>WORDMARK TRACKING <span id="trkVal">8</span>PX</label><input type="range" id="rTrk" min="0" max="28" value="8">
+<label>BACKGROUND</label><div class="btnrow" id="bgBtns"><button data-bg="#FFFFFF" data-fg="#000000" class="on">WHITE</button><button data-bg="#000000" data-fg="#FFFFFF">BLACK</button><button data-bg="#B7FF4A" data-fg="#000000">LIME</button><button data-bg="#0E2F26" data-fg="#FFFFFF">FOREST</button></div>
+<label>OPTIONS</label><div class="btnrow"><button id="bGrid">GRID</button><button id="bDl">⤓ DOWNLOAD SVG</button><button id="bCopy">⧉ COPY SVG</button></div>
+<p class="spec" style="margin-top:10px">CLEARSPACE = 1 STEM · MIN 24PX DIGITAL / 12MM PRINT</p></div></div>
+</div></section>
+
+<section class="slide s1" data-t="Lockups"><div class="reveal">
+<p class="eyebrow">03 · Lockups + misuse</p><h2>Mark + voice.</h2>
+<p class="lede">Space Grotesk 700 caps 0.28em. ™ until CAC verified.</p>
+<div class="mockrow"><div class="mock bc-white"><img src="exports/mrjames-m-primary.svg" style="height:48px"><b>MRJAMESBRAND LTD</b></div>
+<div class="mock"><img src="exports/mrjames-m-reversed.svg" style="height:48px"><b>MRJAMESBRAND LTD</b></div>
+<div class="mock bc-lime"><img src="exports/mrjames-m-primary.svg" style="height:48px"><b>MRJB™</b></div></div>
+</div><div class="reveal"><div class="card"><p class="spec">TAP A MISUSE · IT SHAKES</p><div class="mockrow" style="grid-template-columns:repeat(2,1fr)" id="misuse"><div class="mock">STRETCHED</div><div class="mock">GRADIENT</div><div class="mock">ROUNDED</div><div class="mock">PHOTO BG</div></div></div></div></section>
+
+<section class="slide light" data-t="Colour"><div class="reveal">
+<p class="eyebrow" style="color:#3B2313">04 · Colour · click any swatch to copy</p><h2 style="color:#111">Mono first. Lime acts.</h2>
+<div class="swatches" id="swatches">
+<div class="sw" data-hex="#000000"><i style="background:#000"></i><div>#000000 · 60%</div></div>
+<div class="sw" data-hex="#FFFFFF"><i style="background:#fff;border-bottom:1px solid #eee"></i><div>#FFFFFF · 25%</div></div>
+<div class="sw" data-hex="#B7FF4A"><i style="background:#B7FF4A"></i><div>#B7FF4A · 10%</div></div>
+<div class="sw" data-hex="#F6F4EF"><i style="background:#F6F4EF"></i><div>#F6F4EF paper</div></div>
+<div class="sw" data-hex="#0E2F26"><i style="background:#0E2F26"></i><div>#0E2F26 forest</div></div>
+<div class="sw" data-hex="#3B2313"><i style="background:#3B2313"></i><div>#3B2313 choc</div></div>
+<div class="sw" data-hex="#6B7280"><i style="background:#6B7280"></i><div>#6B7280 stone</div></div>
+<div class="sw" data-hex="#1A1A1A"><i style="background:#1A1A1A"></i><div>#1A1A1A graphite</div></div>
+<div class="sw" data-hex="#E5E7EB"><i style="background:#E5E7EB"></i><div>#E5E7EB mist</div></div>
+<div class="sw" data-hex="#E6F5C7"><i style="background:#E6F5C7"></i><div>#E6F5C7 lime-soft</div></div>
+</div></div>
+<div class="reveal"><h2 style="font-size:1.5rem">Contrast passes.</h2><p class="lede">Black/White 21:1 · Lime/Black ~15:1. Lime on white fails · black on lime always.</p>
+<div class="card" style="margin-top:10px"><p class="spec">THEME PREVIEW</p><div class="btnrow"><button data-th="dark" class="on">DARK HERO</button><button data-th="light">LIGHT PAGE</button></div><div id="thPrev" style="margin-top:10px;padding:20px;background:#000;color:#fff">BUILD A BRAND <span style="color:var(--lime)">PEOPLE CHOOSE.</span></div></div></div></section>
+
+<section class="slide s1" data-t="Type"><div class="reveal">
+<p class="eyebrow">05 · Typography · type anything</p><h2>Grotesk shouts.</h2>
+<input id="typeInput" value="Understand → Trust → Be Chosen" maxlength="60">
+<div id="typePreview">Understand → Trust → Be Chosen</div>
+<p class="lede" style="margin-top:10px">Space Grotesk 700 headlines · Inter 400 body 1.65 · Plex Mono eyebrows. Drag slider for size:</p>
+<input type="range" id="rType" min="24" max="88" value="44" style="width:100%;accent-color:var(--lime)">
+</div><div class="reveal"><div class="card"><p class="spec">PAIRING</p><p style="font-family:'Space Grotesk';font-size:28px;font-weight:700">AaBbGg 0123 →</p><p style="color:#bbb">Inter body: highly legible at 14px tables, portal, invoices.</p><p style="font-family:'IBM Plex Mono';font-size:12px;color:var(--lime)">MONO: EYEBROW 0.72REM 0.18EM</p></div></div></section>
+
+<section class="slide s1" data-t="System" style="grid-template-columns:1fr"><div class="reveal">
+<p class="eyebrow">06 · Growth System · click tabs</p><h2>Discover → Optimize.</h2>
+<div class="gtabs" id="gtabs"></div><div id="gpanel">Select a stage.</div>
+</div></section>
+
+<section class="slide s1" data-t="Web" style="grid-template-columns:1fr"><div class="reveal">
+<p class="eyebrow">07 · In use · web + print + social</p><h2>Dark hero, lime action.</h2>
+<div class="mockrow"><div class="mock" style="grid-column:span 2"><b style="font-family:'Space Grotesk';font-size:26px">BUILD A BRAND PEOPLE CHOOSE.</b><span class="spec">BOOK A CALL [LIME] · CONTACT · ★★★★★ 4.8/5 · 1K+ AVATARS</span></div>
+<div class="mock bc-white"><b>Brand Health Score</b><span>78% Complete</span><div style="height:8px;background:#eee"><i style="display:block;width:78%;height:100%;background:#000"></i></div></div>
+<div class="mock"><b>CARD 85×55</b><span>Black / Lime duplex</span></div><div class="mock bc-white"><b>HQ SIGNAGE</b><span>Benin City</span></div><div class="mock bc-lime"><b>INVOICE #MJB-2026</b><span>Forest portal</span></div></div>
+</div></section>
+
+<section class="slide light" data-t="Refs"><div class="reveal">
+<p class="eyebrow" style="color:#3B2313">08 · Behance refs applied</p><h2 style="color:#111">Stolen legally.</h2>
+<ul class="tight" style="color:#333"><li><b>Truss</b> · industrial mark + mono specs → our black/lime + grid</li><li><b>FRAME</b> · editorial pacing, one accent → numbered flow</li><li><b>InStudio/Plugh</b> · precision + motion → slanted reserved for motion</li></ul>
+</div><div class="reveal"><div class="card"><p class="spec">FEATURE CHECKLIST · CLICK TO TICK</p><div class="btnrow" id="checklist"><button>GRID ✓</button><button>CLEARSPACE ✓</button><button>LOCKUPS ×3 ✓</button><button>RATIO ✓</button><button>MOCKUPS ×6 ✓</button><button>PRINT ✓</button></div></div></div></section>
+
+<section class="slide s1" data-t="Rollout"><div class="reveal">
+<p class="eyebrow">09 · Rollout</p><h2>Ship in a day.</h2>
+<ul class="tight"><li>1. <kbd>site-chrome.tsx:39</kbd> text → <kbd>exports/mrjames-m-*.svg</kbd></li><li>2. Favicon + OG from <kbd>exports/favicon.svg</kbd></li><li>3. JPG → SVG (white JPG dies on black)</li><li>4. Legal: ® vs ™ CAC check</li></ul>
+<p class="spec" id="timer">TIME ON DECK: 0:00</p>
+</div><div class="reveal"><div class="card"><p class="spec">EXPORTS IN THIS FOLDER</p><p style="font-family:'IBM Plex Mono';font-size:12px;line-height:2">presentation.html · index.html<br>exports/*.svg ×6 · assets/logo/*</p><div class="btnrow"><button id="bPrint">⎙ PRINT / PDF</button><button id="bTop">↑ TOP</button></div></div></div></section>
+
+<section class="slide s1" data-t="Close" style="grid-template-columns:1fr;text-align:center;justify-items:center"><div class="reveal">
+<img src="exports/mrjames-m-lime.svg" style="width:110px;margin:0 auto" id="closeMark">
+<h2>Let's build something meaningful.</h2>
+<p class="lede" style="text-align:center">Click the mark for confetti · Vector: Artboard3 · Black/White + Lime · Grotesk / Inter / Mono</p>
+<p style="margin-top:14px"><span style="background:var(--lime);color:#000;padding:12px 28px;font-weight:700">START A PROJECT ↗</span></p>
+<p class="spec" style="margin-top:12px">© 2026 MRJAMESBRAND LTD · BENIN CITY · GLOBAL · STRATEGY · BRAND · DIGITAL · GROWTH</p>
+</div></section>
+
+</div>
+<div class="nav"><button class="ghost" id="prev">← PREV</button><button id="next">NEXT →</button><div class="dots" id="dots"></div><span class="spec">O GRID · F FULL · AUTO · SWIPE · #S DEEP-LINK</span></div>
+</div>
+<div id="overview"><div style="display:flex;justify-content:space-between;margin-bottom:16px"><b style="font-family:'Space Grotesk';letter-spacing:.2em">ALL SLIDES · CLICK TO JUMP (ESC CLOSE)</b><button id="ovClose" style="background:var(--lime);border:none;padding:8px 16px;font-weight:700;cursor:pointer">✕</button></div><div id="ovGrid"></div></div>
+<script>
+let i=0;const S=[...document.querySelectorAll('.slide')],dots=document.getElementById('dots'),count=document.getElementById('count'),prog=document.getElementById('progress');
+S.forEach((s,k)=>{let e=document.createElement('i');if(!k)e.className='on';e.onclick=()=>go(k);dots.appendChild(e);
+let o=document.createElement('div');o.innerHTML=(k+1+'. '+(s.dataset.t||'Slide')).toUpperCase()+'<span>'+(s.dataset.t||'')+' · press '+(k+1)+'</span>';o.onclick=()=>{ov.classList.remove('open');go(k)};ovGrid.appendChild(o)});
+function go(n,dir){let ni=(n+S.length)%S.length;S.forEach((x,k)=>{x.classList.remove('active','enter-left');if(k==ni&&ni<i)x.classList.add('enter-left')});S[ni].classList.add('active');i=ni;
+[...dots.children].forEach((x,k)=>x.className=k==i?'on':'');count.textContent=String(i+1).padStart(2,'0')+' / '+String(S.length).padStart(2,'0');prog.style.width=((i+1)/S.length*100)+'%';location.hash='s'+(i+1)}
+next.onclick=()=>go(i+1);prev.onclick=()=>go(i-1);
+addEventListener('keydown',e=>{if(e.target.tagName=='INPUT')return;if(e.key=='ArrowRight'||e.key==' ')go(i+1);if(e.key=='ArrowLeft')go(i-1);if(e.key=='Home')go(0);if(e.key=='End')go(S.length-1);if(e.key.toLowerCase()=='f')document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen();if(e.key.toLowerCase()=='o')ov.classList.toggle('open');if(e.key=='Escape')ov.classList.remove('open');let n=parseInt(e.key);if(n>=1&&n<=S.length)go(n-1)});
+bOverview.onclick=()=>ov.classList.toggle('open');ovClose.onclick=()=>ov.classList.remove('open');
+bFull.onclick=()=>document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen();
+let auto=null;bAuto.onclick=()=>{if(auto){clearInterval(auto);auto=null;bAuto.textContent='AUTO ▶';bAuto.classList.remove('on')}else{auto=setInterval(()=>go(i+1),4000);bAuto.textContent='AUTO ⏸';bAuto.classList.add('on')}};
+bPrint.onclick=()=>print();bTop.onclick=()=>go(0);
+// touch swipe
+let tx=0;addEventListener('touchstart',e=>tx=e.touches[0].clientX,{passive:true});addEventListener('touchend',e=>{let d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>60)go(i+(d<0?1:-1))},{passive:true});
+// loader
+let p=0,li=setInterval(()=>{p=Math.min(100,p+Math.random()*22);loadPct.innerHTML=Math.floor(p)+'<em>%</em>';loadBar.firstElementChild.style.width=p+'%';if(p>=100){clearInterval(li);setTimeout(()=>loader.classList.add('done'),250)}},120);
+// cursor + hero tilt + particles
+const cur=document.getElementById('cursor');addEventListener('pointermove',e=>{cur.style.left=e.clientX+'px';cur.style.top=e.clientY+'px';
+let h=document.getElementById('heroMark');if(h){let r=h.getBoundingClientRect(),dx=(e.clientX-(r.left+r.width/2))/r.width,dy=(e.clientY-(r.top+r.height/2))/r.height;h.style.transform=`perspective(700px) rotateY(${dx*14}deg) rotateX(${-dy*14}deg)`}});
+function toast(m){let t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1400)}
+// explode on hover
+let ex=document.getElementById('explode');if(ex){ex.addEventListener('pointermove',e=>{let r=ex.getBoundingClientRect(),dx=(e.clientX-r.left)/r.width-.5;document.getElementById('e1').setAttribute('transform',`translate(${-dx*26},0)`);document.getElementById('e2').setAttribute('transform',`translate(0,${-Math.abs(dx)*22})`);document.getElementById('e3').setAttribute('transform',`translate(${dx*26},0)`)});ex.addEventListener('pointerleave',()=>['e1','e2','e3'].forEach(id=>document.getElementById(id).setAttribute('transform','')))}
+// compare
+let cr=document.getElementById('cmpR');if(cr)cr.oninput=()=>{document.getElementById('cmpB').style.clipPath=`inset(0 0 0 ${cr.value}%)`;document.getElementById('cmpH').style.left=cr.value+'%'};
+// playground
+let ps=document.getElementById('playStage'),pl=document.getElementById('playLogo'),pw=document.getElementById('playWord'),psp=document.getElementById('playSpec');
+if(ps){rSize.oninput=()=>{pl.style.width=rSize.value+'px';sizeVal.textContent=rSize.value;upd()};rTrk.oninput=()=>{pw.style.letterSpacing=rTrk.value+'px';trkVal.textContent=rTrk.value;upd()};
+bgBtns.querySelectorAll('button').forEach(b=>b.onclick=()=>{bgBtns.querySelectorAll('button').forEach(x=>x.classList.remove('on'));b.classList.add('on');ps.style.background=b.dataset.bg;let c=b.dataset.fg;pw.style.color=c;psp.style.color=c;pl.src=c=='#000000'?'exports/mrjames-m-primary.svg':(b.dataset.bg=='#B7FF4A'?'exports/mrjames-m-primary.svg':'exports/mrjames-m-reversed.svg');upd()});
+bGrid.onclick=()=>{ps.classList.toggle('showgrid');bGrid.classList.toggle('on')};
+function upd(){psp.textContent=rSize.value+'PX · TRACKING '+rTrk.value+' · ON '+ps.style.background||'WHITE'}
+bDl.onclick=()=>{let a=document.createElement('a');a.href=pl.src;a.download='mrjames-m.svg';a.click();toast('SVG DOWNLOAD STARTED')};
+bCopy.onclick=async()=>{try{let t=await(await fetch(pl.src)).text();await navigator.clipboard.writeText(t);toast('SVG CODE COPIED')}catch(e){toast('COPY BLOCKED · OPEN FILE DIRECTLY')}}}
+// swatches copy
+document.querySelectorAll('.sw').forEach(s=>s.onclick=async()=>{try{await navigator.clipboard.writeText(s.dataset.hex);toast(s.dataset.hex+' COPIED')}catch(e){toast(s.dataset.hex)}});
+// theme preview
+document.querySelectorAll('[data-th]').forEach(b=>b.onclick=()=>{document.querySelectorAll('[data-th]').forEach(x=>x.classList.remove('on'));b.classList.add('on');let t=document.getElementById('thPrev');if(b.dataset.th=='light'){t.style.background='#F6F4EF';t.style.color='#000'}else{t.style.background='#000';t.style.color='#fff'}});
+// misuse shake
+document.querySelectorAll('#misuse .mock').forEach(m=>m.onclick=()=>{m.animate([{transform:'translateX(0)'},{transform:'translateX(-8px)'},{transform:'translateX(8px)'},{transform:'translateX(0)'}],{duration:300});toast('DON’T DO THIS')});
+// type tester
+let ti=document.getElementById('typeInput'),tp=document.getElementById('typePreview');if(ti)ti.oninput=()=>tp.textContent=ti.value||'Type…';let rt=document.getElementById('rType');if(rt)rt.oninput=()=>tp.style.fontSize=rt.value+'px';
+// growth tabs
+let stages=[['Discover','Audit, positioning, research · where the brand stands.'],['Define','Strategy, messaging, architecture · what it means.'],['Design','Identity, system, guidelines · how it looks.'],['Build','Website, assets, templates · how it ships.'],['Launch','Rollout, social, PR · how it lands.'],['Grow','Campaigns, content, CRM · how it scales.'],['Measure','Analytics, health score · what works.'],['Optimize','Refine, expand, systematize · how it endures.']];
+let gt=document.getElementById('gtabs'),gp=document.getElementById('gpanel');stages.forEach((s,k)=>{let b=document.createElement('button');b.textContent=(k+1).toString().padStart(2,'0')+' '+s[0].toUpperCase();b.onclick=()=>{gt.querySelectorAll('button').forEach(x=>x.classList.remove('on'));b.classList.add('on');gp.innerHTML='<b style="font-family:Space Grotesk">'+s[0]+'</b> · '+s[1]};if(!k){b.classList.add('on');gp.innerHTML='<b style="font-family:Space Grotesk">Discover</b> · '+s[1]};gt.appendChild(b)});
+// checklist toggle
+document.querySelectorAll('#checklist button').forEach(b=>b.onclick=()=>{b.classList.toggle('on');b.style.opacity=b.classList.contains('on')?'.4':'1';toast(b.classList.contains('on')?'MARKED':'UNMARKED')});
+// confetti on close mark
+let cm=document.getElementById('closeMark');if(cm)cm.style.cursor='pointer',cm.onclick=e=>{for(let k=0;k<40;k++){let s=document.createElement('i');s.style.cssText=`position:fixed;left:${e.clientX}px;top:${e.clientY}px;width:8px;height:8px;background:${k%2?'#B7FF4A':'#fff'};z-index:600;pointer-events:none`;document.body.appendChild(s);let a=Math.random()*Math.PI*2,v=3+Math.random()*5;s.animate([{transform:'translate(0,0)',opacity:1},{transform:`translate(${Math.cos(a)*v*40}px,${Math.sin(a)*v*40+120}px)`,opacity:0}],{duration:900+Math.random()*600}).onfinish=()=>s.remove()}};
+// timer + hash
+let t0=Date.now();setInterval(()=>{let s=Math.floor((Date.now()-t0)/1000);document.getElementById('timer').textContent='TIME ON DECK: '+Math.floor(s/60)+':'+String(s%60).padStart(2,'0')},1000);
+if(location.hash){let n=parseInt(location.hash.replace('#s',''));if(n>=1&&n<=S.length)go(n-1)}
+// particles canvas
+let cv=document.getElementById('particles');if(cv){let ctx=cv.getContext('2d'),pts=[];function rs(){cv.width=cv.parentElement.clientWidth;cv.height=cv.parentElement.clientHeight}rs();addEventListener('resize',rs);for(let k=0;k<50;k++)pts.push({x:Math.random(),y:Math.random(),s:Math.random()*2+.5,v:Math.random()*.0006+.0002});(function loop(){ctx.clearRect(0,0,cv.width,cv.height);ctx.fillStyle='rgba(183,255,74,.6)';pts.forEach(p=>{p.y-=p.v;if(p.y<0)p.y=1;ctx.fillRect(p.x*cv.width,p.y*cv.height,p.s,p.s)});requestAnimationFrame(loop)})}
+</script>
+<script src="assets/site.js"></script>
+</body>
+</html>

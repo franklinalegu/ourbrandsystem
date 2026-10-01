@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 420" role="img" aria-label="MRJAMESBRAND M primary mark">
+  <!-- Vectorised from Artboard3.jpg — upright flat-bottom block M, flat bases, 45° shoulders -->
+  <!-- Grid: stem 115, gap 70, bridge height 100, stem height 200 -->
+  <g fill="currentColor">
+    <!-- Stem 1 : isolated bar -->
+    <rect x="30" y="160" width="115" height="200"/>
+    <!-- Middle peak + stem -->
+    <path d="M145 160 L215 60 H355 L425 160 L425 360 H310 V160 H145 Z"/>
+    <!-- Right peak + stem : valley touches middle at 425,160 -->
+    <path d="M425 160 L495 60 H635 L680 145 V360 H565 V160 H425 Z"/>
+  </g>
+</svg>

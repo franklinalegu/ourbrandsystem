@@ -1,0 +1,9 @@
+/* Global site bar: one website across all 7 pages. */
+.mjb-sitebar{position:sticky;top:0;z-index:999;display:flex;align-items:center;gap:4px;background:#000;color:#fff;border-bottom:2px solid #B7FF4A;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.1em;padding:0 12px;min-height:38px;flex-wrap:wrap}
+.mjb-sitebar .brand{font-family:'Space Grotesk',sans-serif;font-weight:700;letter-spacing:.18em;color:#B7FF4A;text-decoration:none;padding:10px 10px 10px 2px;white-space:nowrap}
+.mjb-sitebar nav{display:flex;flex-wrap:wrap}
+.mjb-sitebar a.pg{color:#bbb;text-decoration:none;padding:11px 10px;white-space:nowrap}
+.mjb-sitebar a.pg:hover{color:#B7FF4A}
+.mjb-sitebar a.pg.on{color:#000;background:#B7FF4A;font-weight:700}
+.mjb-sitebar .tag{margin-left:auto;color:#777;padding:10px 2px;white-space:nowrap}
+@media(max-width:760px){.mjb-sitebar .tag{display:none}.mjb-sitebar a.pg{padding:9px 7px}}

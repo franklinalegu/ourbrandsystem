@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>M · J · B · R · Logo Rationale · MRJAMESBRAND LTD</title><link rel="icon" href="exports/favicon.svg">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+:root{--black:#000;--paper:#F6F4EF;--mist:#E5E7EB;--lime:#B7FF4A;--stone:#6B7280}
+*{box-sizing:border-box;margin:0}body{font-family:Inter,system-ui;background:var(--paper);color:#111;-webkit-font-smoothing:antialiased}
+.eyebrow{font-family:'IBM Plex Mono';font-size:.72rem;letter-spacing:.18em;text-transform:uppercase}
+.wrap{max-width:1280px;margin:0 auto;padding:0 48px}
+@media(max-width:800px){.wrap{padding:0 20px}}
+#progress{position:fixed;top:0;left:0;height:3px;background:#000;width:0;z-index:99}
+header.top{position:sticky;top:0;z-index:50;background:rgba(246,244,239,.92);backdrop-filter:blur(8px);border-bottom:1px solid #111}
+.top-in{display:flex;align-items:center;gap:16px;height:62px}
+.top-in b{font-family:'Space Grotesk';letter-spacing:.24em;font-size:.82rem}
+.top-in nav{display:flex;gap:18px;margin-left:20px;font-family:'IBM Plex Mono';font-size:.7rem;letter-spacing:.12em}
+.top-in nav a{text-decoration:none;color:#111;opacity:.65}.top-in nav a:hover{opacity:1}
+.btn{margin-left:auto;background:#000;color:#fff;font-family:'Space Grotesk';font-weight:700;font-size:.82rem;padding:10px 20px;text-decoration:none}
+.btn.lime{background:var(--lime);color:#000}
+.hero{background:#000;color:#fff;padding:72px 0 0;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.07) 1px,transparent 1px);background-size:40px 40px;mask-image:radial-gradient(800px 500px at 25% 0%,#000 30%,transparent 75%)}
+h1{font-family:'Space Grotesk';font-weight:700;font-size:clamp(3rem,9vw,7.5rem);line-height:.88;letter-spacing:-.05em;position:relative;z-index:2}
+h1 span{color:var(--lime)}h2{font-family:'Space Grotesk';font-size:clamp(1.8rem,3.6vw,2.9rem);letter-spacing:-.03em;line-height:1}
+.lede{max-width:64ch;line-height:1.65;color:#555}
+.on-dark .lede{color:#cfcfcf}
+section{padding:72px 0;border-bottom:3px solid #000}
+section.dark{background:#000;color:#fff;border-bottom:3px solid #000}
+.sec-head{display:grid;grid-template-columns:80px 1fr auto;gap:18px;align-items:baseline;border-bottom:1px solid currentColor;padding-bottom:14px;margin-bottom:32px}
+.num{font-family:'Space Grotesk';font-weight:700;background:#000;color:var(--lime);display:inline-block;padding:4px 12px}
+.dark .num{background:var(--lime);color:#000}
+.grid12{display:grid;grid-template-columns:repeat(12,1fr);gap:24px}
+.card{border:3px solid #000;background:#fff;padding:0;transition:transform .3s}
+.card:hover{transform:translateY(-4px)}
+.card .hd{border-bottom:3px solid #000;padding:12px 18px;font-family:'IBM Plex Mono';font-size:.7rem;letter-spacing:.14em;display:flex;justify-content:space-between}
+.card .bd{padding:24px}
+.dark .card{border-color:#fff;background:#111}.dark .card .hd{border-color:#fff}
+.stage{background:#000;border:3px solid #000;position:relative;min-height:340px;display:flex;align-items:center;justify-content:center}
+.stage.showgrid::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(183,255,74,.2) 1px,transparent 1px),linear-gradient(90deg,rgba(183,255,74,.2) 1px,transparent 1px);background-size:28px 28px}
+.stage img{width:min(440px,82%);position:relative;z-index:2}
+.layers{display:flex;gap:0;border:3px solid #000;margin-top:0}
+.layers button{flex:1;background:#fff;border:none;border-right:3px solid #000;font-family:'Space Grotesk';font-weight:700;font-size:1.1rem;padding:16px;cursor:pointer}
+.layers button:last-child{border-right:none}.layers button.on{background:#000;color:var(--lime)}
+.layers button small{display:block;font-family:'IBM Plex Mono';font-weight:400;font-size:.62rem;letter-spacing:.14em;margin-top:4px}
+.explode-wrap input{width:100%;accent-color:#000}
+.kv{display:grid;grid-template-columns:1fr 1fr;gap:0;border:3px solid #000}
+.kv div{padding:18px;border-bottom:1px solid #000;font-size:.92rem}.kv div:nth-child(odd){border-right:1px solid #000;font-family:'IBM Plex Mono';font-size:.72rem;letter-spacing:.1em}
+.swatches{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border:3px solid #000}
+.sw{border-right:1px solid #000;cursor:pointer}.sw:last-child{border-right:none}.sw i{display:block;height:84px}.sw div{padding:10px;font-family:'IBM Plex Mono';font-size:11px;border-top:1px solid #000}
+#toast{position:fixed;bottom:26px;left:50%;transform:translateX(-50%);background:#000;color:var(--lime);font-family:'IBM Plex Mono';font-size:12px;padding:10px 22px;opacity:0;transition:.3s;z-index:99}
+#toast.show{opacity:1}
+.reveal{opacity:0;transform:translateY(16px);transition:.6s}.reveal.in{opacity:1;transform:none}
+@media(max-width:900px){.grid12{grid-template-columns:1fr}.kv,.swatches{grid-template-columns:1fr 1fr}}
+</style><link rel="stylesheet" href="assets/design-system.css">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<div id="progress"></div>
+<header class="top"><div class="wrap top-in"><b>M · MRJAMESBRAND</b><nav><a href="presentation.html">DECK</a><a href="index.html">BOARD</a><a href="icons-patterns.html">ICONS</a></nav><a class="btn lime" href="#layers">M·J·B·R ↓</a></div></header>
+
+<div class="hero"><div class="wrap">
+<p class="eyebrow" style="color:var(--lime)">Logo rationale · Artboard3 vector master · Benin City → Global</p>
+<h1>ONE MARK.<br>FOUR LETTERS.<br><span>M · J · B · R.</span></h1>
+<p class="lede on-dark" style="margin:18px 0 26px">Upright flat-bottom block M · engineered on a 12-column brutalist grid, finished with minimal restraint. Three stems carry Strategy · Brand · Digital. Two windows are doors: Benin → Global. Inside the silhouette sit J, B and R · James, Brand, Registered ambition.</p>
+<div style="display:flex;gap:12px;position:relative;z-index:2;margin-bottom:34px"><span class="eyebrow" style="border:1px solid #444;padding:8px 14px">GRID 12 · 8PT · HAIRLINE 1PX</span><span class="eyebrow" style="border:1px solid #444;padding:8px 14px">SQUARE ONLY · 3PX BRUTAL</span><span class="eyebrow" style="background:var(--lime);color:#000;padding:8px 14px">ONE ACCENT · LIME #B7FF4A</span></div>
+</div></div>
+
+<section id="layers"><div class="wrap">
+<div class="sec-head"><span class="num">01</span><h2>Depth · four readings, one geometry</h2><span class="eyebrow">Tap M·J·B·R</span></div>
+<div class="grid12">
+<div style="grid-column:span 7"><div class="stage" id="stage"><img id="layerImg" src="assets/rationale/anatomy-m.svg" alt="layer"></div>
+<div class="layers" id="layerBtns"><button data-f="anatomy-m" class="on">M<small>MASTER</small></button><button data-f="anatomy-j">J<small>JAMES</small></button><button data-f="anatomy-b">B<small>BRAND</small></button><button data-f="anatomy-r">R<small>REGISTERED</small></button></div>
+<div class="card" style="margin-top:16px"><div class="hd"><span>EXPLODE STEMS</span><span id="exVal">0</span></div><div class="bd explode-wrap"><input type="range" id="ex" min="0" max="40" value="0"><p class="eyebrow" style="margin-top:8px">STEM 115 · GAP 70 · VALLEY POINT-CONTACT 145,160 / 425,160</p></div></div>
+</div>
+<div style="grid-column:span 5"><div class="card"><div class="hd"><span id="layerName">M · MASTER</span><span>●</span></div><div class="bd"><p id="layerDesc" style="line-height:1.65">MrJames · Mountain · Method · Move. Full silhouette: two 45° shoulders, three flat bases. Reads at 16px favicon, holds on signage. The promise · build a brand people choose.</p>
+<ul id="layerPts" style="margin-top:12px;line-height:1.7;font-size:.92rem"><li>3 stems = Strategy · Brand · Digital</li><li>2 windows = doors, portal, choice</li><li>Flat base = stability, premium trust</li></ul></div></div>
+<div class="card" style="margin-top:16px"><div class="hd"><span>GRID OVERLAY</span><button id="gridT" style="border:1px solid #000;background:#fff;padding:4px 12px;cursor:pointer;font-family:monospace">TOGGLE</button></div><div class="bd"><p style="font-size:.9rem;line-height:1.6">ViewBox 680×420 · shoulders 45° · bridge 100 · stem 200 · clearspace = 1 stem · min 24px / 12mm.</p></div></div>
+</div></div></div></section>
+
+<section><div class="wrap">
+<div class="sec-head"><span class="num">02</span><h2>Letter by letter</h2><span class="eyebrow">Minimal text · maximum proof</span></div>
+<div class="grid12">
+<div class="card reveal" style="grid-column:span 3"><div class="hd"><span>M</span><span>01</span></div><div class="bd"><b>Master.</b><p style="margin-top:8px;font-size:.9rem;line-height:1.6">Entire mark. Two peaks = twin offer Brand + Digital. Valley = the choice moment. Mountain = rise of ambitious West African business.</p></div></div>
+<div class="card reveal" style="grid-column:span 3"><div class="hd"><span>J</span><span>02</span></div><div class="bd"><b>James · the hook.</b><p style="margin-top:8px;font-size:.9rem;line-height:1.6">Stem 01 + foot. Isolated bar = the individual before the system. Hook = craft, care, founder's hand. Lime keyline traces it.</p></div></div>
+<div class="card reveal" style="grid-column:span 3"><div class="hd"><span>B</span><span>03</span></div><div class="bd"><b>Brand · the bowls.</b><p style="margin-top:8px;font-size:.9rem;line-height:1.6">Twin peaks share one valley spine; lime midbar reveals two B-bowls. Structure, system, scale · Growth System™ Discover→Optimize.</p></div></div>
+<div class="card reveal" style="grid-column:span 3"><div class="hd"><span>R</span><span>04</span></div><div class="bd"><b>Registered · the leg.</b><p style="margin-top:8px;font-size:.9rem;line-height:1.6">Middle-peak bowl + diagonal leg to baseline + ® in clearspace over stem 01. Use ™ until CAC confirms; ® only when registered.</p></div></div>
+</div></div></section>
+
+<section class="dark"><div class="wrap on-dark">
+<div class="sec-head"><span class="num">03</span><h2>Brutal where it proves. Minimal where it breathes.</h2><span class="eyebrow" style="color:var(--lime)">Layout system</span></div>
+<div class="grid12">
+<div class="kv reveal" style="grid-column:span 6;background:#111;border-color:#fff"><div>GRID</div><div>12 col · max 1280 · gutters 20/48/80 · 8pt base</div><div>BORDERS</div><div>3px brutal for proof cards · 1px hairline for calm</div><div>RADIUS</div><div>0 everywhere · pills + avatars only exception</div><div>TYPE</div><div>Grotesk 700 display · Inter body 1.65 · Plex Mono labels</div></div>
+<div class="reveal" style="grid-column:span 6"><div class="swatches" style="border-color:#fff" id="sw"><div class="sw" data-h="#000000"><i style="background:#000;border-bottom:1px solid #333"></i><div>#000000</div></div><div class="sw" data-h="#FFFFFF"><i style="background:#fff"></i><div>#FFFFFF</div></div><div class="sw" data-h="#B7FF4A"><i style="background:#B7FF4A"></i><div>#B7FF4A</div></div><div class="sw" data-h="#F6F4EF"><i style="background:#F6F4EF"></i><div>#F6F4EF</div></div><div class="sw" data-h="#0E2F26"><i style="background:#0E2F26"></i><div>#0E2F26</div></div></div>
+<p class="eyebrow" style="margin-top:12px;color:var(--lime)">CLICK SWATCH TO COPY · LIME = CTA ONLY 10%</p></div>
+</div></div></section>
+
+<section><div class="wrap">
+<div class="sec-head"><span class="num">04</span><h2>Ship it</h2><span class="eyebrow">Exports in this folder</span></div>
+<p class="lede">Replace <b>site-chrome.tsx:39</b> text with <b>exports/mrjames-m-*.svg</b>. Favicon + OG from <b>exports/favicon.svg</b>. JPGs retire · white box dies on black hero.</p>
+<div style="display:flex;gap:12px;margin-top:16px"><a class="btn" href="presentation.html">OPEN DECK →</a><a class="btn lime" href="icons-patterns.html">ICONS + PATTERNS →</a></div>
+<p class="eyebrow" style="margin-top:26px">© 2026 MRJAMESBRAND LTD · BENIN CITY · GLOBAL · STRATEGY · BRAND · DIGITAL · GROWTH</p>
+</div></section>
+<div id="toast">COPIED</div>
+<script>
+let L={ "anatomy-m":["M · MASTER","MrJames · Mountain · Method · Move. Full silhouette: two 45° shoulders, three flat bases. Reads at 16px favicon, holds on signage.",["3 stems = Strategy · Brand · Digital","2 windows = doors, portal, choice","Flat base = stability, premium trust"]],
+"anatomy-j":["J · JAMES","Stem 01 + foot. The founder's initial hidden in plain sight · the individual before the system, hook of craft and care.",["Isolated bar = James, the person","Foot + keyline = hook, craft","Clearspace above = room to grow"]],
+"anatomy-b":["B · BRAND","Twin peaks share one valley spine. Lime midbar exposes two stacked bowls · the B of Brand, Build, brutalist structure.",["Two peaks = Brand + Digital offer","Midbar = system, scale, method","Counters = stability at small sizes"]],
+"anatomy-r":["R · REGISTERED","Middle-peak bowl + diagonal leg to baseline, ® docked in clearspace over stem 01. Ambition to be the chosen, registered mark.",["Bowl = promise, leg = momentum","® position = optical, never touching","Rule: ™ until CAC confirms, ® only when registered"]]};
+let img=document.getElementById('layerImg');
+document.querySelectorAll('#layerBtns button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#layerBtns button').forEach(x=>x.classList.remove('on'));b.classList.add('on');img.src='assets/rationale/'+b.dataset.f+'.svg';let d=L[b.dataset.f];layerName.textContent=d[0];layerDesc.textContent=d[1];layerPts.innerHTML=d[2].map(x=>'<li>'+x+'</li>').join('')});
+document.getElementById('gridT').onclick=e=>{stage.classList.toggle('showgrid')};
+document.getElementById('ex').oninput=e=>{exVal.textContent=e.target.value;img.style.transform=`translateY(${-e.target.value/4}px)`;img.style.filter=`drop-shadow(0 ${e.target.value/2}px 0 rgba(0,0,0,.12))`};
+function toast(m){let t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1300)}
+document.querySelectorAll('#sw .sw').forEach(s=>s.onclick=async()=>{try{await navigator.clipboard.writeText(s.dataset.h);toast(s.dataset.h+' COPIED')}catch(e){toast(s.dataset.h)}});
+let io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.12});document.querySelectorAll('.reveal').forEach(x=>io.observe(x));
+addEventListener('scroll',()=>{let h=document.documentElement,p=h.scrollTop/(h.scrollHeight-h.clientHeight)*100;progress.style.width=p+'%'},{passive:true});
+</script><script src="assets/site.js"></script>
+</body></html>

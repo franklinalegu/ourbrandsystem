@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Design System v2 · MRJAMESBRAND Formation</title><link rel="icon" href="exports/favicon.svg">
+<link rel="stylesheet" href="assets/design-system.css">
+<link rel="stylesheet" href="assets/site.css">
+<style>
+:root{--ink:#111;--bg:#F6F4EF;--card:#fff;--line:#111}
+[data-theme=dark]{--ink:#fff;--bg:#000;--card:#111;--line:rgba(255,255,255,.2)}
+*{box-sizing:border-box}body{font-family:Inter,system-ui;background:var(--bg);color:var(--ink);margin:0;transition:.3s}
+.wrap{max-width:1280px;margin:0 auto;padding:0 clamp(20px,4vw,48px)}
+header{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:3px solid var(--ink)}
+.hd{display:flex;align-items:center;gap:14px;height:62px}
+.hd b{font-family:'Space Grotesk';letter-spacing:.2em;font-size:.8rem}
+.hd nav{display:flex;gap:16px;margin-left:16px;font-family:'IBM Plex Mono';font-size:.66rem;letter-spacing:.1em}
+.hd a{color:inherit;opacity:.65;text-decoration:none}.hd a:hover{opacity:1}
+.tools{margin-left:auto;display:flex;gap:8px}
+.tools button{border:1px solid var(--ink);background:none;color:inherit;font-family:'IBM Plex Mono';font-size:11px;padding:8px 14px;cursor:pointer}
+.tools button.on,.tools button:hover{background:#B7FF4A;color:#000;border-color:#B7FF4A}
+.hero{background:#000;color:#fff;padding:70px 0 0;position:relative;overflow:hidden;border-bottom:3px solid #000}
+.hero::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.08) 1px,transparent 1px);background-size:40px 40px;mask-image:radial-gradient(800px 480px at 25% 0%,#000 30%,transparent 75%)}
+h1{font-family:'Space Grotesk';font-size:clamp(3rem,9vw,7rem);line-height:.88;letter-spacing:-.05em;position:relative;z-index:2}
+h1 span{color:#B7FF4A}h2{font-family:'Space Grotesk';font-size:clamp(1.6rem,3.4vw,2.6rem);letter-spacing:-.03em}
+.eyebrow{font-family:'IBM Plex Mono';font-size:.68rem;letter-spacing:.18em;text-transform:uppercase}
+section{padding:64px 0;border-bottom:3px solid var(--ink)}
+.sec-head{display:grid;grid-template-columns:70px 1fr auto;gap:16px;align-items:baseline;border-bottom:1px solid var(--ink);padding-bottom:12px;margin-bottom:24px}
+.num{font-family:'Space Grotesk';font-weight:700;background:#B7FF4A;color:#000;padding:3px 10px}
+.card{background:var(--card);border:3px solid var(--ink);padding:0}
+.card .hd2{border-bottom:3px solid var(--ink);padding:10px 16px;font-family:'IBM Plex Mono';font-size:.66rem;letter-spacing:.12em;display:flex;justify-content:space-between}
+.card .bd{padding:20px}
+code{background:#000;color:#B7FF4A;padding:2px 8px;font-family:'IBM Plex Mono';font-size:.75rem}
+[data-theme=dark] code{background:#B7FF4A;color:#000}
+pre{background:#000;color:#eee;padding:16px;overflow:auto;font-size:.75rem;border:3px solid #000}
+.tok{display:grid;grid-template-columns:repeat(5,1fr);border:3px solid var(--ink)}
+.tok>div{padding:12px;font-family:'IBM Plex Mono';font-size:11px;border-right:1px solid var(--ink);cursor:pointer}
+.tok>div:last-child{border-right:none}.tok i{display:block;height:54px;margin-bottom:8px;border:1px solid var(--ink)}
+.tok>div:hover{background:#B7FF4A;color:#000}
+table{width:100%;border-collapse:collapse;font-size:.88rem}
+th,td{border:1px solid var(--ink);padding:9px 12px;text-align:left}
+th{font-family:'IBM Plex Mono';font-size:.64rem;letter-spacing:.12em;background:#000;color:#B7FF4A}
+.spbar{display:flex;align-items:flex-end;gap:10px;margin-top:12px}
+.spbar div{flex:1;background:#000;color:#B7FF4A;font-family:'IBM Plex Mono';font-size:10px;text-align:center;border:1px solid #000}
+#playBento{border:3px solid var(--ink)}
+#playBento>div{min-height:110px}
+#typePrev{font-family:'Space Grotesk';font-weight:700;font-size:44px;line-height:1;border:3px solid var(--ink);padding:18px;margin-top:10px;background:var(--card)}
+#typeIn{width:100%;border:3px solid var(--ink);background:var(--card);color:inherit;padding:12px;margin-top:10px;font-size:1rem}
+.dodont{display:grid;grid-template-columns:repeat(4,1fr);border:3px solid var(--ink)}
+.dodont div{padding:18px;text-align:center;border-right:1px solid var(--ink);font-size:.85rem}
+.dodont div:last-child{border-right:none}.bad{background:#000;color:#fff}.good{background:#B7FF4A;color:#000;font-weight:700}
+#toast{position:fixed;bottom:26px;left:50%;transform:translateX(-50%);background:#000;color:#B7FF4A;font-family:'IBM Plex Mono';font-size:12px;padding:10px 22px;opacity:0;transition:.3s;z-index:99;border:1px solid #B7FF4A}
+#toast.show{opacity:1}
+.reveal{opacity:0;transform:translateY(14px);transition:.55s}.reveal.in{opacity:1;transform:none}
+@media(max-width:900px){.tok{grid-template-columns:repeat(2,1fr)}.dodont{grid-template-columns:1fr 1fr}.hd nav{display:none}}
+</style></head><body>
+<header><div class="wrap hd"><b>DS v2 · FORMATION</b><nav><a href="#tokens">TOKENS</a><a href="#type">TYPE</a><a href="#space">SPACE</a><a href="#bento">BENTO</a><a href="#states">STATES</a></nav><div class="tools"><button id="thT">◐ THEME</button><button id="dlBtn">⤓ CSS</button></div></div></header>
+<div class="hero"><div class="wrap">
+<p class="eyebrow" style="color:#B7FF4A">Solid system v2 · brutal-minimal · live + copyable</p>
+<h1>DESIGN<br>SYSTEM<span>.</span></h1>
+<p style="color:#bbb;max-width:68ch;margin:14px 0 24px">One file rules 7 pages: <code>assets/design-system.css</code>. Tokens, type scale, 8pt space, 3px/1px borders, seamless bento. Toggle theme, test type, play with bento, click anything to copy.</p>
+<div style="display:flex;gap:10px;flex-wrap:wrap;position:relative;z-index:2;margin-bottom:28px"><span class="eyebrow" style="border:1px solid #444;padding:8px 14px">1280 · CLAMP GUTTERS</span><span class="eyebrow" style="border:1px solid #444;padding:8px 14px">GAP:0 SHARED LINE</span><span class="eyebrow" style="background:#B7FF4A;color:#000;padding:8px 14px">RADIUS 0 · LIME 10%</span></div>
+</div></div>
+<div class="wrap">
+<section id="tokens"><div class="sec-head"><span class="num">01</span><h2>Tokens · click to copy</h2><span class="eyebrow">10 colors · 3 fonts · 2 borders</span></div>
+<div class="tok reveal" id="tokColors">
+<div data-c="#000000"><i style="background:#000"></i>--ds-black<br>#000000</div><div data-c="#FFFFFF"><i style="background:#fff"></i>--ds-white<br>#FFFFFF</div><div data-c="#B7FF4A"><i style="background:#B7FF4A"></i>--ds-lime<br>CTA 10%</div><div data-c="#F6F4EF"><i style="background:#F6F4EF"></i>--ds-paper<br>#F6F4EF</div><div data-c="#0E2F26"><i style="background:#0E2F26"></i>--ds-forest<br>portal</div><div data-c="#3B2313"><i style="background:#3B2313"></i>--ds-choc</div><div data-c="#6B7280"><i style="background:#6B7280"></i>--ds-stone</div><div data-c="#1A1A1A"><i style="background:#1A1A1A"></i>--ds-dark</div><div data-c="#E5E7EB"><i style="background:#E5E7EB"></i>--ds-mist</div><div data-c="#E6F5C7"><i style="background:#E6F5C7"></i>--ds-lime-soft</div>
+</div>
+<div class="bento bento-3 reveal" style="display:grid;margin-top:14px"><div><b>Measure</b><br><code>--ds-max 1280px</code><br><code>--ds-gutter 20→48</code></div><div><b>Rhythm</b><br><code>--ds-sec-y 56→84</code><br><code>--ds-gap 12→22 · 8pt</code></div><div><b>Borders</b><br><code>3px brutal proof</code><br><code>1px hairline calm</code></div></div></section>
+<section id="type"><div class="sec-head"><span class="num">02</span><h2>Type · live tester</h2><span class="eyebrow">GROTESK / INTER / MONO</span></div>
+<input id="typeIn" value="Understand → Trust → Be Chosen" maxlength="60"><div id="typePrev">Understand → Trust → Be Chosen</div>
+<label class="eyebrow">SIZE <span id="tsV">44</span>PX</label><input type="range" id="ts" min="24" max="96" value="44" style="width:100%;accent-color:#000">
+<table style="margin-top:14px"><tr><th>Role</th><th>Face</th><th>Spec</th><th>Use</th></tr>
+<tr><td>H1</td><td>Grotesk 700</td><td>clamp 3–8rem · -0.05em · 0.88</td><td>Hero only</td></tr>
+<tr><td>H2</td><td>Grotesk 700</td><td>2–3.2rem · -0.03em</td><td>Section titles</td></tr>
+<tr><td>Body</td><td>Inter 400</td><td>1rem · 1.65 · 68ch</td><td>Everything else</td></tr>
+<tr><td>Eyebrow</td><td>Plex Mono</td><td>.7rem · .18em · caps</td><td>Labels, specs</td></tr></table></section>
+<section id="space"><div class="sec-head"><span class="num">03</span><h2>Space + borders</h2><span class="eyebrow">8PT · SEAMLESS</span></div>
+<div class="card reveal"><div class="hd2"><span>8PT SCALE (PX)</span><span>SECTION 56→84 · STACK 16/20</span></div><div class="bd"><div class="spbar"><div style="height:32px">8</div><div style="height:44px">12</div><div style="height:56px">16</div><div style="height:72px">24</div><div style="height:92px">32</div><div style="height:112px">48</div><div style="height:132px">64</div><div style="height:152px">84</div></div>
+<p style="margin-top:12px;font-size:.9rem">Sections never double borders: <code>section+section{margin-top:-1px}</code>. Grids share one line: <code>gap:0 + outline 1px</code>. Brutal 3px for proof cards, hairline 1px for calm content.</p></div></div></section>
+<section id="bento"><div class="sec-head"><span class="num">04</span><h2>Bento playground</h2><span class="eyebrow">HERO SPANS · SEAMLESS</span></div>
+<div style="display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap"><button data-c="3" style="border:3px solid var(--ink);background:var(--card);color:inherit;padding:8px 16px;cursor:pointer;font-family:monospace">3 COL</button><button data-c="4" style="border:3px solid var(--ink);background:var(--card);color:inherit;padding:8px 16px;cursor:pointer;font-family:monospace">4 COL</button><button id="spanT" style="border:3px solid var(--ink);background:#B7FF4A;color:#000;padding:8px 16px;cursor:pointer;font-family:monospace">HERO SPAN: ON</button></div>
+<div class="bento bento-3 reveal" id="playBento"><div class="span-2"><b>Hero (span-2)</b><br>Cover · playground · web hero</div><div><b>Side</b><br>Specs + proof</div><div><b>A</b><br>Card</div><div><b>B</b><br>Signage</div><div><b>C</b><br>Invoice</div></div>
+<pre style="margin-top:12px">&lt;div class="bento bento-3"&gt;&lt;div class="span-2"&gt;hero&lt;/div&gt;…&lt;/div&gt;  +  assets/design-system.css</pre></section>
+<section id="states"><div class="sec-head"><span class="num">05</span><h2>States + rules</h2><span class="eyebrow">DO / DON'T</span></div>
+<div class="dodont reveal"><div class="good">DO<br>square · lime CTA · one H1</div><div class="good">DO<br>copy hex · 68ch lede</div><div class="bad">DON'T<br>round · gradient · stretch</div><div class="bad">DON'T<br>body in Grotesk · lime on white</div></div>
+<p style="margin-top:16px">Patched: formation · presentation · index · rationale · icons-patterns · stakeholder · one measure, seamless sections, bento grids. <a href="stakeholder.html" style="color:inherit">← back to hub</a></p></section>
+</div>
+<div id="toast">COPIED</div>
+<script>
+function toast(m){let t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1300)}
+thT.onclick=()=>{let r=document.documentElement;r.dataset.theme=r.dataset.theme=='light'?'dark':'light'};
+dlBtn.onclick=async()=>{try{let t=await(await fetch('assets/design-system.css')).text();await navigator.clipboard.writeText(t);toast('CSS COPIED · PASTE TO FILE')}catch(e){toast('OPEN assets/design-system.css')}};
+document.querySelectorAll('#tokColors>div').forEach(d=>d.onclick=async()=>{try{await navigator.clipboard.writeText(d.dataset.c);toast(d.dataset.c+' COPIED')}catch(e){toast(d.dataset.c)}});
+typeIn.oninput=()=>typePrev.textContent=typeIn.value||'Type…';ts.oninput=()=>{tsV.textContent=ts.value;typePrev.style.fontSize=ts.value+'px'};
+document.querySelectorAll('[data-c]').forEach(b=>{if(b.tagName!='BUTTON')return;b.onclick=()=>{let p=document.getElementById('playBento');p.className='bento reveal in bento-'+b.dataset.c;toast(b.dataset.c+' COL')}});
+spanT.onclick=()=>{let h=document.querySelector('#playBento>div');h.classList.toggle('span-2');spanT.textContent=h.classList.contains('span-2')?'HERO SPAN: ON':'HERO SPAN: OFF'};
+let io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.1});document.querySelectorAll('.reveal').forEach(x=>io.observe(x));
+</script><script src="assets/site.js"></script>
+</body></html>

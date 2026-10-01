@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>M Icons + Patterns · MRJAMESBRAND LTD</title><link rel="icon" href="exports/favicon.svg">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+:root{--lime:#B7FF4A;--paper:#F6F4EF}*{box-sizing:border-box;margin:0}
+body{font-family:Inter,system-ui;background:#000;color:#fff}
+.wrap{max-width:1280px;margin:0 auto;padding:40px 28px}
+.eyebrow{font-family:'IBM Plex Mono';font-size:.72rem;letter-spacing:.18em;color:var(--lime);text-transform:uppercase}
+h1{font-family:'Space Grotesk';font-size:clamp(2.4rem,6vw,5rem);letter-spacing:-.04em;line-height:.95}
+h2{font-family:'Space Grotesk';font-size:1.8rem;margin:48px 0 8px}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0;align-items:center}
+.toolbar input[type=text]{background:#0c0c0c;border:1px solid #333;color:#fff;padding:11px 14px;min-width:240px}
+.toolbar input[type=range]{accent-color:var(--lime)}
+.toolbar button{background:transparent;border:1px solid #444;color:#fff;font-family:'IBM Plex Mono';font-size:11px;padding:10px 14px;cursor:pointer}
+.toolbar button.on,.toolbar button:hover{background:var(--lime);color:#000;border-color:var(--lime)}
+#iconGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin-top:14px}
+.icon{background:#111;border:1px solid rgba(255,255,255,.12);padding:18px 12px;text-align:center;cursor:pointer;transition:.25s}
+.icon:hover{border-color:var(--lime);transform:translateY(-3px)}
+.icon svg{margin:0 auto;color:#fff}.iconinv .icon svg{color:#000}.iconinv .icon{background:#fff}
+.icon span{display:block;font-family:'IBM Plex Mono';font-size:10px;color:#999;margin-top:10px;word-break:break-all}
+#patGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;margin-top:14px}
+.pat{border:1px solid rgba(255,255,255,.14);cursor:pointer}.pat .tile{height:170px;background-size:auto;background-repeat:repeat}.pat div:last-child{padding:12px;font-family:'IBM Plex Mono';font-size:11px;display:flex;justify-content:space-between;gap:8px}
+#toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%);background:var(--lime);color:#000;font-family:'IBM Plex Mono';font-size:12px;padding:10px 22px;opacity:0;transition:.3s}#toast.show{opacity:1}
+.spec{font-family:'IBM Plex Mono';font-size:11px;color:#888;letter-spacing:.1em}
+a{color:var(--lime)}
+</style><link rel="stylesheet" href="assets/design-system.css">
+<link rel="stylesheet" href="assets/site.css">
+</head><body><div class="wrap" id="top">
+<p class="eyebrow">MRJAMESBRAND LTD · Icon pack + Vector patterns · 24 / 8</p>
+<h1>ICONS &amp;<br>PATTERNS.</h1>
+<p style="color:#bbb;max-width:70ch;margin-top:10px">Square caps, 24px grid, stroke 2.4 · same DNA as the block M. Click any icon/pattern to copy SVG. Use toolbar to test size, stroke, background. All files in <b>assets/icons</b>, <b>assets/patterns</b> + mirrored in <b>exports/</b>.</p>
+<p class="spec" style="margin-top:8px"><a href="presentation.html">← PRESENTATION</a> · <a href="index.html">BRAND BOARD</a></p>
+
+<h2>Icon pack · <span id="iconCount">23</span> glyphs</h2>
+<div class="toolbar">
+<input type="text" id="q" placeholder="Filter · e.g. arrow, book, growth…">
+<label class="spec">SIZE <span id="szV">40</span></label><input type="range" id="sz" min="24" max="72" value="40">
+<label class="spec">STROKE <span id="stV">2.4</span></label><input type="range" id="st" min="1.5" max="3.5" step="0.1" value="2.4">
+<button id="bgT">BG: DARK</button><button id="dlAll">⤓ DOWNLOAD ALL (.ZIP via print)</button>
+</div>
+<div id="iconGrid"></div>
+
+<h2>Vector patterns · 8 tiles</h2>
+<div class="toolbar"><label class="spec">TILE SCALE <span id="tsV">100</span>%</label><input type="range" id="ts" min="40" max="200" value="100"></div>
+<div id="patGrid"></div>
+<p class="spec" style="margin:26px 0 60px">USAGE · icons: 24px UI / 20px nav, never below 16px, lime only for active state. Patterns: blueprint + lime-tape for hero/packaging, dot-matrix + m-tessellation for print backs, slash-motion for social motion only. Tile seamlessly (patternUnits userSpaceOnUse).</p>
+</div><div id="toast">COPIED</div>
+<script>
+let ICONS=["arrow-up-right","arrow-right","arrow-left","menu","close","plus","check","search","briefcase-work","layers-services","grid-solutions","compass-method","chart-insights","book-resources","cap-academy","mail-contact","cal-book","user-portal","trend-growth","shield-trust","star-proof","quote-mark","play-circle"];
+let PATS=["pattern-m-tessellation","pattern-slash-motion","pattern-peak-grid","pattern-blueprint","pattern-dot-matrix","pattern-bar-rhythm","pattern-valley-fade","pattern-lime-tape"];
+let grid=document.getElementById('iconGrid'),cache={};
+async function loadIcon(n){if(cache[n])return cache[n];let t=await(await fetch('assets/icons/'+n+'.svg')).text();cache[n]=t;return t}
+async function render(filter=""){grid.innerHTML="";let c=0;for(let n of ICONS){if(filter&&!n.includes(filter.toLowerCase()))continue;c++;
+let d=document.createElement('div');d.className='icon';d.innerHTML=(await loadIcon(n))+'<span>'+n+'.svg</span>';
+d.querySelector('svg').setAttribute('width',sz.value);d.querySelector('svg').setAttribute('height',sz.value);
+d.querySelectorAll('svg [stroke]').forEach(e=>{if(e.getAttribute('stroke')=='currentColor')return});d.querySelector('svg').setAttribute('stroke-width',st.value);
+d.onclick=async()=>{try{await navigator.clipboard.writeText(await loadIcon(n));toast(n.toUpperCase()+' SVG COPIED')}catch(e){toast(n.toUpperCase())}};grid.appendChild(d)}
+iconCount.textContent=c}
+function toast(m){let t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1300)}
+q.oninput=()=>render(q.value);sz.oninput=()=>{szV.textContent=sz.value;render(q.value)};st.oninput=()=>{stV.textContent=st.value;render(q.value)};
+bgT.onclick=()=>{document.body.classList.toggle('iconinv');bgT.textContent=document.body.classList.contains('iconinv')?'BG: LIGHT':'BG: DARK';bgT.classList.toggle('on');if(document.body.classList.contains('iconinv')){document.body.style.background='#F6F4EF';document.body.style.color='#111'}else{document.body.style.background='#000';document.body.style.color='#fff'}render(q.value)};
+dlAll.onclick=()=>toast('OPEN exports/icons · SELECT ALL → DOWNLOAD (SVG IS NATIVE ZIP-FREE)');
+let pg=document.getElementById('patGrid');
+PATS.forEach(n=>{let d=document.createElement('div');d.className='pat';d.innerHTML=`<div class="tile" style="background-image:url('assets/patterns/${n}.svg')"></div><div><span>${n}.svg</span><span>⧉ COPY PATH</span></div>`;
+d.onclick=async()=>{try{await navigator.clipboard.writeText(`assets/patterns/${n}.svg`);toast(n.toUpperCase()+' PATH COPIED')}catch(e){toast(n.toUpperCase())}};pg.appendChild(d)});
+ts.oninput=()=>{tsV.textContent=ts.value;document.querySelectorAll('.tile').forEach(t=>t.style.backgroundSize=ts.value+'%')};
+render();
+</script><script src="assets/site.js"></script>
+</body></html>

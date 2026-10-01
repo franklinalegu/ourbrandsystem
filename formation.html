@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Formation · Mark + Processes · MRJAMESBRAND LTD</title><link rel="icon" href="exports/favicon.svg">
+<meta name="description" content="Formation: the consistent balanced system for MRJAMESBRAND LTD · the mark (M·J·B·R) and the processes (brand formation + Growth System).">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+:root{--black:#000;--dark:#1A1A1A;--white:#fff;--paper:#F6F4EF;--mist:#E5E7EB;--stone:#6B7280;--lime:#B7FF4A;--lime2:#C8FF7A;--forest:#0E2F26;--max:1280px;--g:clamp(20px,4vw,64px)}
+[data-theme=light]{--bg:#fff;--bg2:#F6F4EF;--ink:#000;--mut:#444;--line:#000;--card:#fff}
+[data-theme=dark]{--bg:#000;--bg2:#0c0c0c;--ink:#fff;--mut:#c9c9c9;--line:rgba(255,255,255,.16);--card:#111}
+*{box-sizing:border-box;margin:0}html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:Inter,system-ui;line-height:1.6;transition:background .3s,color .3s}
+.eyebrow{font-family:'IBM Plex Mono';font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:inherit;opacity:.7}
+.eyebrow.lime{color:var(--lime);opacity:1}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--g)}
+header{position:sticky;top:0;z-index:60;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.hd{display:flex;align-items:center;gap:14px;height:64px}
+.hd b{font-family:'Space Grotesk';letter-spacing:.22em;font-size:.8rem}
+.hd img{height:22px}
+nav.main{display:flex;gap:20px;margin-left:18px;font-family:'IBM Plex Mono';font-size:.68rem;letter-spacing:.12em}
+nav.main a{color:inherit;opacity:.65;text-decoration:none}nav.main a:hover{opacity:1;color:var(--lime)}
+.tools{margin-left:auto;display:flex;gap:8px}
+.tools button,.tools a{background:transparent;border:1px solid var(--line);color:inherit;font-family:'IBM Plex Mono';font-size:11px;padding:8px 14px;cursor:pointer;text-decoration:none}
+.tools .cta{background:var(--lime);color:#000;border-color:var(--lime);font-family:'Space Grotesk';font-weight:700}
+#progress{position:fixed;top:0;left:0;height:3px;background:var(--lime);width:0;z-index:99}
+.hero{position:relative;overflow:hidden;padding:84px 0 0;border-bottom:1px solid var(--line)}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(800px 500px at 18% 8%,rgba(183,255,74,.2),transparent 65%)}
+.hero::after{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:40px 40px;opacity:.35;mask-image:radial-gradient(900px 560px at 30% 8%,#000 25%,transparent 75%)}
+h1{font-family:'Space Grotesk';font-weight:700;font-size:clamp(3rem,10vw,8.5rem);line-height:.86;letter-spacing:-.05em;position:relative;z-index:2}
+h1 span{color:var(--lime)}h2{font-family:'Space Grotesk';font-size:clamp(1.9rem,4vw,3.2rem);letter-spacing:-.03em;line-height:1}
+.lede{color:var(--mut);max-width:68ch}
+section{padding:76px 0;border-bottom:1px solid var(--line)}
+.sec-head{display:flex;align-items:baseline;gap:16px;border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:30px}
+.sec-head .n{font-family:'Space Grotesk';font-weight:700;background:var(--lime);color:#000;padding:3px 10px}
+.sec-head p{margin-left:auto;font-family:'IBM Plex Mono';font-size:.68rem;letter-spacing:.12em;opacity:.6}
+.grid12{display:grid;grid-template-columns:repeat(12,1fr);gap:22px}
+.card{background:var(--card);border:1px solid var(--line);padding:24px;transition:transform .3s,border-color .3s}
+.card:hover{transform:translateY(-4px);border-color:var(--lime)}
+.marquee{overflow:hidden;white-space:nowrap;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.marquee div{display:inline-block;padding:10px 0;animation:mq 20s linear infinite;font-family:'IBM Plex Mono';font-size:12px;letter-spacing:.16em}
+@keyframes mq{to{transform:translateX(-50%)}}
+.stage{background:#000;border:1px solid var(--line);min-height:320px;display:flex;align-items:center;justify-content:center;position:relative;color:#fff}
+.stage.showgrid::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(183,255,74,.18) 1px,transparent 1px),linear-gradient(90deg,rgba(183,255,74,.18) 1px,transparent 1px);background-size:28px 28px}
+.stage img{width:min(400px,80%);z-index:2}
+.seg{display:flex;border:1px solid var(--line);margin-bottom:14px;flex-wrap:wrap}.seg button{flex:1;background:transparent;border:none;border-right:1px solid var(--line);color:inherit;font-family:'Space Grotesk';font-weight:700;padding:14px;cursor:pointer;min-width:90px}.seg button:last-child{border-right:none}.seg button.on{background:var(--lime);color:#000}
+.seg small{display:block;font-family:'IBM Plex Mono';font-weight:400;font-size:.6rem;letter-spacing:.12em}
+.swatches{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.sw{border:1px solid var(--line);cursor:pointer;background:var(--card)}.sw i{display:block;height:64px}.sw div{padding:8px;font-family:'IBM Plex Mono';font-size:11px}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.step{border-top:3px solid var(--lime);padding-top:12px}.step b{font-family:'Space Grotesk';font-size:2rem}.step p{font-size:.9rem;color:var(--mut)}
+.gtabs{display:flex;gap:0;border:1px solid var(--line);flex-wrap:wrap;margin-top:12px}.gtabs button{flex:1;background:transparent;border:none;border-right:1px solid var(--line);color:inherit;font-family:'IBM Plex Mono';font-size:10px;padding:12px 6px;cursor:pointer;min-width:100px}.gtabs button:last-child{border-right:none}.gtabs button.on{background:var(--lime);color:#000}
+#gpanel{border:1px solid var(--line);border-top:none;padding:18px;min-height:96px;background:var(--card)}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.tile{border:1px solid var(--line);height:150px;background-size:auto;background-repeat:repeat;cursor:pointer}
+.mockrow{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.mock{border:1px solid var(--line);background:var(--card);min-height:190px;padding:18px;display:flex;flex-direction:column;gap:8px;justify-content:space-between}
+footer{padding:44px 0 70px}.foot{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:22px}.foot a{color:inherit;opacity:.7;text-decoration:none;display:block;margin:6px 0;font-size:.9rem}.foot a:hover{opacity:1;color:var(--lime)}
+#toast{position:fixed;bottom:26px;left:50%;transform:translateX(-50%);background:var(--lime);color:#000;font-family:'IBM Plex Mono';font-size:12px;padding:10px 22px;opacity:0;transition:.3s;z-index:99}#toast.show{opacity:1}
+.reveal{opacity:0;transform:translateY(16px);transition:.6s}.reveal.in{opacity:1;transform:none}
+input[type=text]{width:100%;background:var(--card);border:1px solid var(--line);color:inherit;padding:12px;margin-top:10px}
+#typePrev{font-family:'Space Grotesk';font-weight:700;font-size:42px;border:1px solid var(--line);padding:16px;margin-top:10px;background:var(--card)}
+@media(max-width:900px){.grid12{grid-template-columns:1fr}.grid12>*{grid-column:auto!important}nav.main{display:none}.steps,.mockrow,.tiles{grid-template-columns:1fr 1fr}.swatches{grid-template-columns:repeat(3,1fr)}.foot{grid-template-columns:1fr 1fr}}
+</style><link rel="stylesheet" href="assets/design-system.css">
+<link rel="stylesheet" href="assets/site.css">
+</head><body>
+<div id="progress"></div>
+<header><div class="wrap hd"><img id="hdMark" src="exports/mrjames-m-reversed.svg" alt="M"><b>FORMATION</b>
+<nav class="main"><a href="#mark">MARK</a><a href="#system">SYSTEM</a><a href="#icons">ICONS</a><a href="#process">PROCESS</a><a href="#use">IN&nbsp;USE</a><a href="#files">FILES</a></nav>
+<div class="tools"><button id="thT">◐ THEME</button><a class="cta" href="#files">START →</a></div></div></header>
+
+<div class="hero"><div class="wrap">
+<p class="eyebrow lime">Formation · Mark + Processes · MRJAMESBRAND LTD · Benin City → Global</p>
+<h1>FORMATION<br>MARK <span>+</span><br>PROCESSES<span>.</span></h1>
+<p class="lede" style="margin:16px 0 20px">One consistent, balanced system for everything we ship. The <b>Formation Mark</b> (M·J·B·R in one geometry) plus the <b>Formation Processes</b> (brand formation in 4 moves + Growth System™ in 8 stages). Square only. Mono first. Lime acts.</p>
+<div style="display:flex;gap:10px;flex-wrap:wrap;position:relative;z-index:2;margin-bottom:30px"><span class="eyebrow" style="border:1px solid var(--line);padding:8px 14px">12-COL · 8PT · 3PX/1PX</span><span class="eyebrow" style="border:1px solid var(--line);padding:8px 14px">GROTESK / INTER / MONO</span><span class="eyebrow" style="background:var(--lime);color:#000;padding:8px 14px;opacity:1">M·J·B·R INSIDE ONE M</span></div>
+</div><div class="marquee"><div>&nbsp;STRATEGY · BRAND · DIGITAL · GROWTH · UNDERSTAND → TRUST → BE CHOSEN · FORMATION MARK + PROCESSES ·&nbsp;STRATEGY · BRAND · DIGITAL · GROWTH · UNDERSTAND → TRUST → BE CHOSEN · FORMATION MARK + PROCESSES ·</div></div></div>
+
+<section id="mark"><div class="wrap">
+<div class="sec-head"><span class="n">01</span><h2>Formation Mark</h2><p>VECTOR MASTER · ARTBOARD3</p></div>
+<div class="grid12">
+<div class="card reveal" style="grid-column:span 7"><div class="seg" id="seg"><button data-f="anatomy-m" class="on">M<small>MASTER</small></button><button data-f="anatomy-j">J<small>JAMES</small></button><button data-f="anatomy-b">B<small>BRAND</small></button><button data-f="anatomy-r">R<small>REGISTERED</small></button></div>
+<div class="stage" id="stage"><img id="layerImg" src="assets/rationale/anatomy-m.svg" alt="mark layers"></div>
+<p class="eyebrow" style="margin-top:10px"><button id="gridT" style="background:none;border:1px solid var(--line);color:inherit;font:inherit;padding:6px 12px;cursor:pointer">TOGGLE GRID</button> · STEM 115 · GAP 70 · 45° · CLEARSPACE 1 STEM · MIN 24PX / 12MM</p></div>
+<div class="reveal" style="grid-column:span 5"><p class="eyebrow lime" id="layerKicker">M · MASTER</p><h2 id="layerName" style="font-size:1.7rem">MrJames · Mountain · Method</h2>
+<p class="lede" id="layerDesc" style="margin-top:10px">Full silhouette: two 45° shoulders, three flat bases. 3 stems = Strategy·Brand·Digital. 2 windows = doors Benin → Global.</p>
+<ul id="layerPts" style="margin-top:12px;line-height:1.8"></ul>
+<div class="card" style="margin-top:14px"><p class="eyebrow">Lockups</p><div style="display:flex;gap:10px;margin-top:10px;align-items:center"><img src="exports/mrjames-m-primary.svg" style="height:34px" class="themed"><b style="font-family:'Space Grotesk';letter-spacing:.2em">MRJAMESBRAND LTD</b></div><p class="eyebrow" style="margin-top:8px">™ UNTIL CAC CONFIRMS · ® ONLY WHEN REGISTERED</p></div></div>
+</div></div></section>
+
+<section id="system"><div class="wrap">
+<div class="sec-head"><span class="n">02</span><h2>Balanced system</h2><p>TOKENS · TYPE · COLOR</p></div>
+<div class="grid12">
+<div class="card reveal" style="grid-column:span 5"><p class="eyebrow">Color · tap to copy · lime = 10% CTA</p><div class="swatches" id="sw" style="margin-top:10px">
+<div class="sw" data-h="#000000"><i style="background:#000"></i><div>#000000</div></div><div class="sw" data-h="#FFFFFF"><i style="background:#fff;border-bottom:1px solid #ddd"></i><div>#FFFFFF</div></div><div class="sw" data-h="#B7FF4A"><i style="background:#B7FF4A"></i><div>#B7FF4A</div></div><div class="sw" data-h="#F6F4EF"><i style="background:#F6F4EF"></i><div>#F6F4EF</div></div><div class="sw" data-h="#0E2F26"><i style="background:#0E2F26"></i><div>#0E2F26</div></div><div class="sw" data-h="#3B2313"><i style="background:#3B2313"></i><div>#3B2313</div></div><div class="sw" data-h="#6B7280"><i style="background:#6B7280"></i><div>#6B7280</div></div><div class="sw" data-h="#1A1A1A"><i style="background:#1A1A1A"></i><div>#1A1A1A</div></div><div class="sw" data-h="#E5E7EB"><i style="background:#E5E7EB"></i><div>#E5E7EB</div></div><div class="sw" data-h="#E6F5C7"><i style="background:#E6F5C7"></i><div>#E6F5C7</div></div></div></div>
+<div class="card reveal" style="grid-column:span 7"><p class="eyebrow">Type · type to test</p>
+<input type="text" id="typeIn" value="Understand → Trust → Be Chosen" maxlength="60"><div id="typePrev">Understand → Trust → Be Chosen</div>
+<p class="lede" style="margin-top:8px">Grotesk 700 display · Inter 400 body 1.65 · Plex Mono eyebrows. Never body in Grotesk. Never rounded fonts.</p></div>
+</div></div></section>
+
+<section id="icons"><div class="wrap">
+<div class="sec-head"><span class="n">03</span><h2>Icons + patterns</h2><p>23 GLYPHS · 8 TILES · <a href="icons-patterns.html" style="color:var(--lime)">OPEN FULL LAB →</a></p></div>
+<div class="grid12"><div class="card reveal" style="grid-column:span 7"><p class="eyebrow">Sample · square caps · 24px · 2.4</p><div id="iconRow" style="display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-top:12px"></div></div>
+<div class="reveal" style="grid-column:span 5"><p class="eyebrow">Patterns</p><div class="tiles" style="margin-top:10px" id="patRow"></div></div></div>
+</div></section>
+
+<section id="process"><div class="wrap">
+<div class="sec-head"><span class="n">04</span><h2>Formation processes</h2><p>4 MOVES · 8 STAGES</p></div>
+<div class="steps reveal">
+<div class="step"><b>01</b><p class="eyebrow">Form</p><p>Position + promise. Audit, Company Snapshot, Who-we-are. One line the brand owns.</p></div>
+<div class="step"><b>02</b><p class="eyebrow">Forge</p><p>Mark + system. M·J·B·R construction, lockups, color, type, icons, patterns.</p></div>
+<div class="step"><b>03</b><p class="eyebrow">Field</p><p>Ship everywhere. Web hero, cards, signage, social, portal, invoice · same grid.</p></div>
+<div class="step"><b>04</b><p class="eyebrow">Flywheel</p><p>Measure + optimize. Health score, analytics, Growth System loops.</p></div>
+</div>
+<p class="eyebrow" style="margin:18px 0 0">Growth System™ · tap stages</p>
+<div class="gtabs" id="gtabs"></div><div id="gpanel">Select a stage.</div>
+</div></section>
+
+<section id="use"><div class="wrap">
+<div class="sec-head"><span class="n">05</span><h2>In use</h2><p>DARK HERO · PAPER PROOF</p></div>
+<div class="mockrow reveal"><div class="mock"><b style="font-family:'Space Grotesk';font-size:1.3rem">BUILD A BRAND PEOPLE CHOOSE.</b><p class="eyebrow">BOOK A CALL [LIME] · ★★★★★ 4.8/5 · 1K+</p></div>
+<div class="mock"><b>Brand Health Score</b><p>78% Complete</p><p class="eyebrow">PORTAL CARD</p></div>
+<div class="mock"><b>Card · Sign · Tote · Invoice</b><p class="eyebrow">85×55 · HQ BENIN · #MJB-2026</p></div></div>
+</div></section>
+
+<section id="files"><div class="wrap">
+<div class="sec-head"><span class="n">06</span><h2>Files · solid approach</h2><p>ALL IN THIS FOLDER</p></div>
+<div class="grid12">
+<div class="card reveal" style="grid-column:span 6"><p class="eyebrow">Open in order</p><p style="line-height:2.1;margin-top:8px"><a href="stakeholder.html">00 stakeholder.html · one link</a><br><a href="presentation.html">01 presentation.html · 13-slide deck</a><br><a href="rationale.html">02 rationale.html · M·J·B·R depth</a><br><a href="index.html">03 index.html · full board</a><br><a href="icons-patterns.html">04 icons-patterns.html · lab</a></p></div>
+<div class="card reveal" style="grid-column:span 6"><p class="eyebrow">Replace in repo</p><p style="line-height:2.1;margin-top:8px">site-chrome.tsx:39 text → exports/mrjames-m-*.svg<br>favicon + OG ← exports/favicon.svg<br>JPGs retire · ™ until CAC · ® only when registered</p></div>
+</div></div></section>
+
+<footer><div class="wrap foot">
+<div><b style="font-family:'Space Grotesk';letter-spacing:.2em">FORMATION · M·J·B·R</b><p class="lede" style="margin-top:8px">Consistent balanced system · mark + processes. Benin City · Global delivery.</p></div>
+<div><p class="eyebrow">System</p><a href="#mark">Mark</a><a href="#system">Tokens</a><a href="#icons">Icons</a></div>
+<div><p class="eyebrow">Process</p><a href="#process">Formation 4</a><a href="#process">Growth 8</a><a href="#use">In use</a></div>
+<div><p class="eyebrow">Hub</p><a href="stakeholder.html">Stakeholders</a><a href="presentation.html">Deck</a><a href="rationale.html">Rationale</a></div>
+</div><div class="wrap"><p class="eyebrow" style="margin-top:22px">© 2026 MRJAMESBRAND LTD · STRATEGY · BRAND · DIGITAL · GROWTH</p></div></footer>
+<div id="toast">COPIED</div>
+<script>
+function toast(m){let t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1300)}
+// theme
+let root=document.documentElement;function setTh(t){root.dataset.theme=t;hdMark.src=t=='dark'?'exports/mrjames-m-reversed.svg':'exports/mrjames-m-primary.svg'}
+thT.onclick=()=>setTh(root.dataset.theme=='dark'?'light':'dark');setTh('dark');
+// progress + reveal
+addEventListener('scroll',()=>{let h=document.documentElement;progress.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%'},{passive:true});
+let io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.1});document.querySelectorAll('.reveal').forEach(x=>io.observe(x));
+// layers
+let L={"anatomy-m":["M · MASTER","MrJames · Mountain · Method","Full silhouette: two 45° shoulders, three flat bases. 3 stems = Strategy·Brand·Digital. 2 windows = doors.",["Stems carry the offer","Windows are choice","Base is trust"]],"anatomy-j":["J · JAMES","The founder's hook","Stem 01 + foot. Individual before system; craft and care.",["Bar = James","Foot = craft","Space above = growth"]],"anatomy-b":["B · BRAND","Twin-bowl structure","Two peaks, one valley spine. Midbar reveals B bowls · system and scale.",["Peaks = Brand + Digital","Midbar = method","Counters hold small"]],"anatomy-r":["R · REGISTERED","Bowl + leg + mark","Middle-peak bowl, diagonal leg to baseline, ® docked over stem 01.",["Bowl = promise","Leg = momentum","™ until CAC, ® when registered"]]};
+document.querySelectorAll('#seg button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#seg button').forEach(x=>x.classList.remove('on'));b.classList.add('on');layerImg.src='assets/rationale/'+b.dataset.f+'.svg';let d=L[b.dataset.f];document.getElementById('layerKicker').textContent=d[0];layerName.textContent=d[1];layerDesc.textContent=d[2];layerPts.innerHTML=d[3].map(x=>'<li>'+x+'</li>').join('')});
+gridT.onclick=()=>stage.classList.toggle('showgrid');
+// swatches
+document.querySelectorAll('#sw .sw').forEach(s=>s.onclick=async()=>{try{await navigator.clipboard.writeText(s.dataset.h);toast(s.dataset.h+' COPIED')}catch(e){toast(s.dataset.h)}});
+// type
+typeIn.oninput=()=>typePrev.textContent=typeIn.value||'Type…';
+// icons sample
+["arrow-up-right","trend-growth","shield-trust","layers-services","chart-insights","star-proof"].forEach(async n=>{let t=await(await fetch('assets/icons/'+n+'.svg')).text();let d=document.createElement('div');d.style.cssText='border:1px solid var(--line);padding:14px;text-align:center';d.innerHTML=t+'<div style="font-family:monospace;font-size:9px;margin-top:6px">'+n+'</div>';d.querySelector('svg').setAttribute('width','34');d.querySelector('svg').setAttribute('height','34');iconRow.appendChild(d)});
+// patterns sample
+["pattern-blueprint","pattern-m-tessellation","pattern-slash-motion","pattern-lime-tape"].forEach(n=>{let d=document.createElement('div');d.className='tile';d.style.backgroundImage=`url('assets/patterns/${n}.svg')`;d.title=n;patRow.appendChild(d)});
+// growth
+let S=[['Discover','Audit + positioning.'],['Define','Strategy + messaging.'],['Design','Identity + system.'],['Build','Web + assets.'],['Launch','Rollout + PR.'],['Grow','Campaigns + CRM.'],['Measure','Health score.'],['Optimize','Refine + scale.']];
+S.forEach((s,k)=>{let b=document.createElement('button');b.textContent='0'+(k+1)+' '+s[0].toUpperCase();b.onclick=()=>{gtabs.querySelectorAll('button').forEach(x=>x.classList.remove('on'));b.classList.add('on');gpanel.innerHTML='<b style="font-family:Space Grotesk">'+s[0]+'</b> · '+s[1]};if(!k){b.classList.add('on');gpanel.innerHTML='<b style="font-family:Space Grotesk">Discover</b> · Audit + positioning.'}gtabs.appendChild(b)});
+</script><script src="assets/site.js"></script>
+</body></html>
